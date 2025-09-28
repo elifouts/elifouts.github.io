@@ -130,7 +130,9 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border-color: var(--accent_color);
-            background: linear-gradient(135deg, var(--accent_color) 0%, #83a598 100%);
+            background: linear-gradient(45deg, #83a598, #458588, #689d6a, #b16286);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
             z-index: 10;
         }
 
@@ -323,8 +325,6 @@
 
         .github-repo-slider .slick-arrow {
             z-index: 100;
-            bottom: -20px !important;
-            top: auto !important;
         }
 
         /* Responsive adjustments */
@@ -373,6 +373,19 @@
         
         .fast-anim.fadeInDown {
             animation-duration: 0.5s !important;
+        }
+
+        /* Gradient animation for cards */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
@@ -679,7 +692,7 @@
             <div class="d2c_c2a_box wow fadeInUp">
                 <h2 class="wow fadeInUp fast-anim" data-wow-delay="0.1s">Wanna hire me?</h2>
                 <p class="wow fadeInUp fast-anim" data-wow-delay="0.2s">Ready to collaborate? Check out my experience and qualifications.</p>
-                <a href="./pages/contact.html" class="btn wow fadeInUp" data-wow-delay="0.3s">Resume</a>
+                <a href="./pages/assets/resume/Eli_Fouts_Resume.pdf" target="_blank" class="btn wow fadeInUp" data-wow-delay="0.3s">Resume</a>
             </div>
         </div>
     </section>

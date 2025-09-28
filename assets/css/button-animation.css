@@ -107,7 +107,9 @@
     transform: translateY(-3px);
     animation-play-state: paused;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid #458588;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #458588;
 }
 
 
@@ -127,12 +129,12 @@
         var(--accent-purple, #b16286)
     );
     z-index: -1;
-    border: 2px solid var(--primary_color);
     background-size: 400%;
     animation: borderGlow 12s linear infinite;
     filter: blur(3px);
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: inherit;
 }
 
 @keyframes borderGlow {

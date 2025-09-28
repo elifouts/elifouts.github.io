@@ -313,7 +313,9 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border-color: var(--accent_color);
-            background: linear-gradient(135deg, var(--accent_color) 0%, #83a598 100%);
+            background: linear-gradient(45deg, #83a598, #458588, #689d6a, #b16286);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
             z-index: 10;
         }
 
@@ -487,7 +489,7 @@
             width: 100%;
             overflow: hidden;
             padding: 20px;
-            background: radial-gradient(ellipse at center, rgba(69, 133, 136, 0.05) 0%, transparent 70%);
+            background: transparent;
         }
 
         .floating-card-wrapper {
@@ -652,6 +654,19 @@
                 padding: 40px 0 60px !important;
             }
         }
+
+        /* Gradient animation for cards */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -685,19 +700,19 @@
                             <a class="nav-link" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/about.html">About</a>
+                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/service.html">Projects</a>
+                            <a class="nav-link" href="service.html">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/gallery.html">Gallery</a>
+                            <a class="nav-link" href="gallery.html">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/blog.html">Links</a>
+                            <a class="nav-link" href="blog.html">Links</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn d2c_nav_btn" href="./pages/contact.html">Connect With Me</a>
+                            <a class="btn d2c_nav_btn" href="contact.html">Connect With Me</a>
                         </li>
                     </ul>
                 </div>
