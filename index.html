@@ -1,0 +1,876 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Deafult Meta Tag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OG Meta Tag -->
+    <meta name="robots" content="index, follow">
+    <meta name="og:title" content="ReactProx- React Developer Portfolio Website Templates">
+    <meta name="og:description" content="Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.">
+    <meta property="og:image" content="https://designtocodes.com/wp-content/uploads/2024/02/ReactProx-React-Developer-Portfolio-Website-Templates.jpg">
+    <!-- Title -->
+    <title>Eli Fouts | Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" id="favicon" href="./assets/images/favicon.png" type="image/gif" sizes="16x16">
+    <!-- Animate CSS Link -->
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css">
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 5 CDN/ Icon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- fancybox image gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <!-- Slider CSS Link -->
+    <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick-theme.css">
+    <!-- Bootstarp 5 CSS -->
+    <link rel="stylesheet" href="./lib/bootstrap-5/css/bootstrap.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Button Animation CSS -->
+    <link rel="stylesheet" href="./assets/css/button-animation.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <style>
+        .ef-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: var(--primary_color);
+            text-decoration: none;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            background: linear-gradient(
+                45deg,
+                var(--accent-yellow, #a89984) 0%,
+                var(--accent-blue, #7c6f64) 50%,
+                var(--accent-purple, #f9f5d7) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .ef-logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--accent-yellow, #a89984),
+                var(--accent-blue, #7c6f64),
+                var(--accent-purple, #f9f5d7)
+            );
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .ef-logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .preloader .ef-logo {
+            font-size: 48px;
+        }
+
+        /* Navigation Button Smaller Size */
+        .d2c_nav_btn {
+            font-size: 14px !important;
+            padding: 8px 24px 7px !important;
+        }
+
+        /* Reduce Top Bar Margins */
+        .d2c_navbar .container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        /* GitHub Repository Cards Styles */
+        .github-repos-section {
+            background: var(--section_bg);
+            padding: 80px 0;
+        }
+
+        .github-repos-section .col {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .github-repo-card {
+            background: #3c3836;
+            border: 1px solid var(--secondary_color);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 0 0 35px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            height: calc(100% - 35px);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-repo-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent_color);
+            background: linear-gradient(135deg, var(--accent_color) 0%, #83a598 100%);
+            z-index: 10;
+        }
+
+        .github-repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent_color) 0%, var(--color_one) 50%, var(--primary_color) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .github-repo-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 14px;
+        }
+
+        .repo-icon {
+            font-size: 24px;
+            color: var(--primary_color);
+            margin-top: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: var(--accent_color);
+            transform: scale(1.1);
+        }
+
+        .repo-title-section {
+            flex: 1;
+        }
+
+        .repo-name {
+            color: var(--text_color);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-name {
+            color: #1d2021;
+        }
+
+        .repo-subtitle {
+            color: var(--primary_color);
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .repo-stats-bottom {
+            display: flex;
+            gap: 16px;
+            margin-top: auto;
+            padding-top: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--primary_color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-stat {
+            background: rgba(168, 153, 132, 0.1);
+            padding: 4px 10px;
+            border-radius: 18px;
+            border: 1px solid rgba(168, 153, 132, 0.2);
+        }
+
+        .github-repo-card:hover .language-stat {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 0, 0, 0.4);
+            color: #282828;
+        }
+
+        .github-repo-card:hover .stat-item {
+            color: #282828;
+        }
+
+        .language-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(249, 245, 215, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .github-repo-card:hover .language-dot {
+            transform: scale(1.15);
+        }
+
+        .language-dot.python { background: var(--accent_color); }
+        .language-dot.javascript { background: #fabd2f; }
+        .language-dot.typescript { background: var(--color_one); }
+        .language-dot.css { background: #d3869b; }
+        .language-dot.shell { background: #8ec07c; }
+        .language-dot.go { background: #689d6a; }
+
+        .star-stat i, .fork-stat i {
+            color: #fabd2f;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .star-stat i {
+            transform: scale(1.2) rotate(10deg);
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .fork-stat i {
+            transform: scale(1.1);
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .repo-name {
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .repo-subtitle {
+            color: #282828;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: #1d2021;
+        }
+
+        .repo-description-section {
+            flex: 1;
+            padding-top: 8px;
+        }
+
+        .repo-description {
+            color: var(--color_two);
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+        }
+
+        .github-repo-card:hover .repo-description {
+            color: #282828;
+        }
+
+        /* Ensure slider doesn't clip hover effects */
+        .github-repo-slider {
+            overflow: visible !important;
+            padding: 10px 0 60px 0;
+        }
+
+        .github-repo-slider .slick-list {
+            overflow: visible !important;
+        }
+
+        .github-repo-slider .slick-track {
+            display: flex !important;
+            align-items: stretch;
+        }
+
+        .github-repo-slider .slick-slide {
+            height: inherit !important;
+            overflow: visible !important;
+        }
+
+        /* Hide slider dots completely */
+        .github-repo-slider .slick-dots {
+            display: none !important;
+        }
+
+        .github-repo-slider .slick-arrow {
+            z-index: 100;
+            bottom: -20px !important;
+            top: auto !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .github-repo-card {
+                height: 240px;
+                padding: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .repo-stats-top {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                font-size: 10px;
+            }
+            
+            .repo-name {
+                font-size: 14px;
+            }
+
+            .github-repos-section .col {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+        
+        /* Fast Animation Styles */
+        .fast-anim.animated {
+            animation-duration: 0.6s !important;
+        }
+        
+        /* Speed up specific text animations */
+        .fast-anim.fadeInUp {
+            animation-duration: 0.5s !important;
+        }
+        
+        .fast-anim.fadeInLeft {
+            animation-duration: 0.5s !important;
+        }
+        
+        .fast-anim.fadeInRight {
+            animation-duration: 0.5s !important;
+        }
+        
+        .fast-anim.fadeInDown {
+            animation-duration: 0.5s !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page Start -->
+
+    <!--  Preloader Start  -->
+    <div class="preloader">
+        <span class="ef-logo">EF</span>
+    </div>
+    <!--  Preloader End  -->
+
+    <!-- Header Start -->
+    <header class="d2c_navbar sticky-top">
+        <div class="container">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg" id="d2c_main_nav">
+                <!-- Logo -->
+                <a class="navbar-brand" href="./index.html"><span class="ef-logo">EF</span></a>
+                <!-- Logo -->
+
+                <!-- HamBurger -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <!-- HamBurger -->
+
+                <!-- Nav Item -->
+                <div class="collapse navbar-collapse js-clone-nav justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/service.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/blog.html">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn d2c_nav_btn" href="./pages/contact.html">Connect With Me</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Nav Item -->
+            </nav>
+            <!-- Navbar -->
+
+            <!-- Tab And Mobile View -->
+            <div class="collapse navbar-collapse d2c_mobile_view" id="navbarSupportedContent">
+                <div class="show_width container">
+                    <div class="text-right">
+                        <button class="navbar-toggler d2c_cross_btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fa fa-times"></i></span>
+                        </button>
+                    </div>
+                    
+                    <div class="navbar d2c_mobile_view_body"></div>
+                </div>
+            </div>
+            <!-- Tab And Mobile View -->
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Start -->
+    <section class="d2c_hero_wrapper">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start order-1 order-lg-0 wow fadeInLeft">
+                    <h6>Welcome to My Portfolio</h6>
+                    <h1>I am <span class="neon-sign">Eli Fouts</span></h1>
+                    <h5>PLM Application Engineer</h5>
+                    <p class="pe-0 pe-xl-5">Welcome to my website, where you can explore my projects, view my resume, get in touch, and learn more about me.</p>
+                    <a href="./pages/contact.html" class="btn">Hire Me</a>
+                    <a href="./pages/about.html" class="btn secondary_btn">Learn More</a>
+                </div>
+                <div class="col-lg-6 order-0 order-lg-1 mb-5 mb-lg-0 wow fadeInRight">
+                    <div class="d2c_hero_img_wrapper mx-auto">
+                        <div class="d2c_img_wrapper">
+                            <img src="./assets/images/hero_img.jpg" class="w-100 h-100 rounded-3" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Section Start -->
+    <section class="d2c_about_wrapper">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 wow fadeInLeft">
+                    <div class="d2c_about_img_wrapper mb-5 mb-lg-0 mx-auto mx-lg-0">
+                        <div class="d2c_img_wrapper">
+                            <img src="./assets/images/about_img.jpg" class="w-100 h-100 rounded-3" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-start wow fadeInRight">
+                    <h2 class="wow fadeInUp fast-anim" data-wow-delay="0.1s">Get to Know Me</h2>
+                    <p class="mb-2 wow fadeInUp fast-anim" data-wow-delay="0.2s">Curious about the person behind ReactProx? Dive into my story, skills, and the journey that led me to the world of best for the React development. Let's connect on a personal level.</p>
+                    <p class="d2c_about_content wow fadeInUp fast-anim" data-wow-delay="0.3s">I've been part of the team that has built the front-end for an enterprise level web application in AngularJS. I've been a part of a team that has built a social network from scratch in Meteor.</p>
+                    <h5 class="wow fadeInUp fast-anim" data-wow-delay="0.4s">How can i help you</h5>
+                    <p class="wow fadeInUp fast-anim" data-wow-delay="0.5s">I've diverse background in technology, which mean I'm always learning new skills. I've worked with a wide range of technologies, including MS SQL Server and Python. One of my favorite characteristics of an employer is their passion for the work they are doing.</p>
+                    <a href="./pages/contact.html" class="btn mt-3 wow fadeInUp" data-wow-delay="0.6s">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- My Projects Section Start -->
+    <section class="d2c_testimonial_wrapper github-repos-section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4 wow fadeInUp">
+                <div>
+                    <h2 class="text-start mb-2">My Projects</h2>
+                    <p class="text-start mb-0">Explore my open-source projects and contributions</p>
+                </div>
+                <a href="./pages/service.html" class="btn">See More</a>
+            </div>
+            <div class="row github-repo-slider wow fadeInUp" id="github-slider-container" style="overflow: visible;">
+                <!-- Temporary static cards for testing -->
+                <div class="col">
+                    <div class="github-repo-card" data-repo-url="https://github.com/username/ai-automation-suite">
+                        <div class="repo-header">
+                            <div class="repo-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="repo-title-section">
+                                <h5 class="repo-name">AI-Automation-Suite</h5>
+                                <p class="repo-subtitle">Intelligent Process Automation Platform</p>
+                            </div>
+                        </div>
+                        <div class="repo-description-section">
+                            <p class="repo-description">Advanced AI-powered automation platform with machine learning integration for streamlined business processes.</p>
+                        </div>
+                        <div class="repo-stats-bottom">
+                            <div class="stat-item language-stat">
+                                <div class="language-dot python"></div>
+                                <span class="language-name">Python</span>
+                            </div>
+                            <div class="stat-item star-stat">
+                                <i class="fas fa-star"></i>
+                                <span>156</span>
+                            </div>
+                            <div class="stat-item fork-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="github-repo-card" data-repo-url="https://github.com/username/cloud-infrastructure-toolkit">
+                        <div class="repo-header">
+                            <div class="repo-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="repo-title-section">
+                                <h5 class="repo-name">Cloud-Infrastructure-Toolkit</h5>
+                                <p class="repo-subtitle">DevOps Configuration Management</p>
+                            </div>
+                        </div>
+                        <div class="repo-description-section">
+                            <p class="repo-description">Complete DevOps toolkit for cloud infrastructure deployment with automated scaling and monitoring capabilities.</p>
+                        </div>
+                        <div class="repo-stats-bottom">
+                            <div class="stat-item language-stat">
+                                <div class="language-dot shell"></div>
+                                <span class="language-name">Shell</span>
+                            </div>
+                            <div class="stat-item star-stat">
+                                <i class="fas fa-star"></i>
+                                <span>203</span>
+                            </div>
+                            <div class="stat-item fork-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>67</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="github-repo-card" data-repo-url="https://github.com/username/web-analytics-dashboard">
+                        <div class="repo-header">
+                            <div class="repo-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="repo-title-section">
+                                <h5 class="repo-name">Web-Analytics-Dashboard</h5>
+                                <p class="repo-subtitle">Real-time Data Visualization</p>
+                            </div>
+                        </div>
+                        <div class="repo-description-section">
+                            <p class="repo-description">Interactive web analytics platform with real-time data processing and customizable visualization components.</p>
+                        </div>
+                        <div class="repo-stats-bottom">
+                            <div class="stat-item language-stat">
+                                <div class="language-dot javascript"></div>
+                                <span class="language-name">JavaScript</span>
+                            </div>
+                            <div class="stat-item star-stat">
+                                <i class="fas fa-star"></i>
+                                <span>89</span>
+                            </div>
+                            <div class="stat-item fork-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>23</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="github-repo-card" data-repo-url="https://github.com/username/reactflow-dashboard">
+                        <div class="repo-header">
+                            <div class="repo-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="repo-title-section">
+                                <h5 class="repo-name">ReactFlow-Dashboard</h5>
+                                <p class="repo-subtitle">Interactive Data Visualization Platform</p>
+                            </div>
+                        </div>
+                        <div class="repo-description-section">
+                            <p class="repo-description">Modern dashboard solution built with React and TypeScript, featuring real-time data visualization.</p>
+                        </div>
+                        <div class="repo-stats-bottom">
+                            <div class="stat-item language-stat">
+                                <div class="language-dot typescript"></div>
+                                <span class="language-name">TypeScript</span>
+                            </div>
+                            <div class="stat-item star-stat">
+                                <i class="fas fa-star"></i>
+                                <span>89</span>
+                            </div>
+                            <div class="stat-item fork-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>17</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Projects Section End -->
+
+    <!-- Project Section Start -->
+    <section class="d2c_project_wrapper text-center">
+        <div class="container">
+            <h2 class="wow fadeInUp fast-anim">Gallery</h2>
+            <p class="wow fadeInUp fast-anim" data-wow-delay="0.1s">I've diverse background in technology, which mean I'm always learning new skills.</p>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 wow fadeInLeft">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_one.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInDown">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_two.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInRight">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_three.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInLeft">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_four.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_five.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInRight">
+                    <div class="d2c_img_wrapper">
+                        <img src="./assets/images/project_img_six.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                    </div>
+                </div>
+            </div>
+            <a href="./pages/gallery.html" class="btn wow fadeInUp" data-wow-delay="0.5s">See more</a>
+        </div>
+    </section>
+    <!-- Project Section End -->
+
+
+
+    <!-- Call To Action Section Start -->
+    <section class="d2c_c2a_wrapper text-center">
+        <div class="container">
+            <div class="d2c_c2a_box wow fadeInUp">
+                <h2 class="wow fadeInUp fast-anim" data-wow-delay="0.1s">Wanna hire me?</h2>
+                <p class="wow fadeInUp fast-anim" data-wow-delay="0.2s">Ready to collaborate? Check out my experience and qualifications.</p>
+                <a href="./pages/contact.html" class="btn wow fadeInUp" data-wow-delay="0.3s">Resume</a>
+            </div>
+        </div>
+    </section>
+    <!-- Call To Action Section End -->
+
+    <!-- Blog Section Start -->
+    <section class="d2c_blog_wrapper text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center wow fadeInDown">
+                    <h2 class="fast-anim">Useful Links</h2>
+                    <p class="fast-anim">Explore curated resources, tools, and references that I find valuable for development and engineering work.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
+                    <div class="d2c_card">
+                        <div class="d2c_img_wrapper">
+                            <img src="./assets/images/blog_img_one.jpg" class="w-100 h-100" alt="Blog Image">
+                        </div>
+                        <div class="row d2c_blog_title_wrapper align-items-center">
+                            <div class="col-9 col-xl-10">
+                                <a href="#"><p class="mb-0">Let's Get Solution For Building Construction Work</p></a>
+                            </div>
+                            <div class="col-3 col-xl-2">
+                                <div class="d2c_icon_wrapper">
+                                    <i class="fas fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="d2c_card">
+                        <div class="d2c_img_wrapper">
+                            <img src="./assets/images/blog_img_two.jpg" class="w-100 h-100" alt="Blog Image">
+                        </div>
+                        <div class="row d2c_blog_title_wrapper align-items-center">
+                            <div class="col-9 col-xl-10">
+                                <a href="#"><p class="mb-0">Quick Tips for Time-Strapped Individuals solutions</p></a>
+                            </div>
+                            <div class="col-3 col-xl-2">
+                                <div class="d2c_icon_wrapper">
+                                    <i class="fas fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 offset-md-3 offset-lg-0 wow fadeInRight" data-wow-delay="0.4s">
+                    <div class="d2c_card">
+                        <div class="d2c_img_wrapper">
+                            <img src="./assets/images/blog_img_three.jpg" class="w-100 h-100" alt="Blog Image">
+                        </div>
+                        <div class="row d2c_blog_title_wrapper align-items-center">
+                            <div class="col-9 col-xl-10">
+                                <a href="#"><p class="mb-0">DataAI - Free Tailwind App Landing Page Template</p></a>
+                            </div>
+                            <div class="col-3 col-xl-2">
+                                <div class="d2c_icon_wrapper">
+                                    <i class="fas fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="./pages/blog.html" class="btn wow fadeInUp" data-wow-delay="0.6s">View More</a>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="d2c_footer_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
+                    <a href="./index.html" class="wow fadeInUp" data-wow-delay="0.2s"><span class="ef-logo">EF</span></a>
+                    <p class="mb-0 wow fadeInUp" data-wow-delay="0.4s">I've been working as web developer for the past two years, and have experience</p>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
+                    <div class="d2c_contact_details">
+                        <h5 class="wow fadeInUp" data-wow-delay="0.2s">Contact Details</h5>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2 wow fadeInLeft" data-wow-delay="0.4s">
+                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">+88 219 555-0114</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2 wow fadeInLeft" data-wow-delay="0.6s">
+                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0">reactprox@mail.com</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center wow fadeInLeft" data-wow-delay="0.8s">
+                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInRight">
+                    <div class="d2c_footer_newsletter">
+                        <h5 class="wow fadeInUp" data-wow-delay="0.2s">Newsletter</h5>
+                        <form class="needs-validation wow fadeInUp" data-wow-delay="0.4s" novalidate>
+                            <div class="input-group h-100">
+                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
+                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                        <ul class="list-group list-group-horizontal wow fadeInUp" data-wow-delay="0.6s">
+                            <li class="wow fadeInLeft" data-wow-delay="0.8s">
+                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-delay="1s">
+                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-delay="1.2s">
+                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-delay="1.4s">
+                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copy Right Start -->
+        <div class="container">
+            <div class="d2c_copy_right_wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+        <!-- Copy Right End -->
+    </footer>
+    <!-- Footer Section End -->
+    
+    <!-- Scroll Button Start -->
+    <div id="scrollBtn" class="d2c_scroll_btn">
+        <a href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+    <!-- Scroll Button  End -->
+    <!-- Home Page End -->
+    
+    
+
+    <!-- JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- WOW Animation JS -->
+    <script src="./lib/WOW-master/dist/wow.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="./lib/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <!-- fancybox Image -->
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- Slider JS Link -->
+    <script src="./lib/slick-1.8.1/slick/slick.min.js"></script>
+    <!-- Starfield Effect -->
+    <script src="./assets/js/starfield.js"></script>
+    <!-- Main JS Link -->
+    <script src="./assets/js/main.js"></script>
+    <!-- GitHub Repos JS -->
+    <script src="./assets/js/github-repos.js"></script>
+    
+    <!-- GitHub Repository Cards JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // Handle GitHub repository card clicks
+            $('.github-repo-card').on('click', function() {
+                const repoUrl = $(this).data('repo-url');
+                if (repoUrl) {
+                    window.open(repoUrl, '_blank');
+                }
+            });
+            
+            // Add hover effects for better UX
+            $('.github-repo-card').on('mouseenter', function() {
+                $(this).find('.repo-name').css('color', '#1d2021');
+            }).on('mouseleave', function() {
+                $(this).find('.repo-name').css('color', '#fbf1c7');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+    Template Name: {{ReactProx- React Developer Portfolio Website Templates}}
+    Template URL: {{https://designtocodes.com/product/reactprox-react-developer-portfolio-website-templates}}
+    Description: {{Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.}}
+    Author: DesignToCodes
+    Author URL: https://www.designtocodes.com
+    Text Domain: {{ React Prox }}
+ -->

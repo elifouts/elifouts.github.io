@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Deafult Meta Tag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OG Meta Tag -->
+    <meta name="robots" content="index, follow">
+    <meta name="og:title" content="ReactProx- React Developer Portfolio Website Templates">
+    <meta name="og:description" content="Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.">
+    <meta property="og:image" content="https://designtocodes.com/wp-content/uploads/2024/02/ReactProx-React-Developer-Portfolio-Website-Templates.jpg">
+    <!-- Title -->
+    <title>Eli Fouts | Projects</title>
+    <!-- Favicon -->
+    <link rel="icon" id="favicon" href="../assets/images/favicon.png" type="image/gif" sizes="16x16">
+    <!-- Animate CSS Link -->
+    <link rel="stylesheet" href="../lib/WOW-master/css/libs/animate.css">
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 5 CDN/ Icon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- fancybox image gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <!-- Slider CSS Link -->
+    <link rel="stylesheet" href="../lib/slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="../lib/slick-1.8.1/slick/slick-theme.css">
+    <!-- Bootstarp CSS -->
+    <link rel="stylesheet" href="../lib/bootstrap-5/css/bootstrap.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Button Animation CSS -->
+    <link rel="stylesheet" href="../assets/css/button-animation.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .ef-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: var(--primary_color);
+            text-decoration: none;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            background: linear-gradient(
+                45deg,
+                var(--accent-yellow, #a89984) 0%,
+                var(--accent-blue, #7c6f64) 50%,
+                var(--accent-purple, #f9f5d7) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .ef-logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--accent-yellow, #a89984),
+                var(--accent-blue, #7c6f64),
+                var(--accent-purple, #f9f5d7)
+            );
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .ef-logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .ef-logo:hover {
+            text-shadow: 0 0 10px rgba(69, 133, 136, 0.5);
+        }
+
+        .preloader .ef-logo {
+            font-size: 48px;
+        }
+
+        /* Navigation Button Smaller Size */
+        .d2c_nav_btn {
+            font-size: 14px !important;
+            padding: 8px 24px 7px !important;
+        }
+
+        /* Reduce Top Bar Margins */
+        .d2c_navbar .container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        /* Service Page Layout Improvements */
+        .d2c_services_wrapper.d2c_service_page {
+            padding: 80px 0 60px !important;
+        }
+
+        .d2c_services_wrapper .row {
+            gap: 20px 0;
+            justify-content: center;
+        }
+
+        /* GitHub Repository Cards Styles - Smaller & Better Contrast */
+        .github-repo-card {
+            background: #3c3836;
+            border: 1px solid #504945;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 0 0 35px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            height: calc(100% - 35px);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-repo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 64px rgba(69, 133, 136, 0.25);
+            background: linear-gradient(135deg, #458588 0%, #83a598 100%);
+            border-color: #83a598;
+        }
+
+        .github-repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #458588 0%, #458588 50%, #a89984 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .github-repo-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .repo-icon {
+            font-size: 24px;
+            color: #a89984;
+            margin-top: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: #458588;
+            transform: scale(1.1);
+        }
+
+        .repo-title-section {
+            flex: 1;
+        }
+
+        .repo-name {
+            color: #f9f5d7;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-name {
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .repo-description {
+            color: #1d2021;
+        }
+
+        .repo-subtitle {
+            color: #a89984;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .repo-stats-bottom {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #a89984;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-stat {
+            background: rgba(168, 153, 132, 0.1);
+            padding: 4px 10px;
+            border-radius: 18px;
+            border: 1px solid rgba(168, 153, 132, 0.2);
+        }
+
+        .github-repo-card:hover .language-stat {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 0, 0, 0.4);
+            color: #282828;
+        }
+
+        .github-repo-card:hover .stat-item {
+            color: #282828;
+        }
+
+        .language-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(249, 245, 215, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .github-repo-card:hover .language-dot {
+            transform: scale(1.15);
+        }
+
+        .language-dot.python { background: #458588; }
+        .language-dot.javascript { background: #fabd2f; }
+        .language-dot.typescript { background: #458588; }
+        .language-dot.css { background: #d3869b; }
+        .language-dot.shell { background: #8ec07c; }
+        .language-dot.go { background: #689d6a; }
+
+        .star-stat i, .fork-stat i {
+            color: #fabd2f;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .star-stat i {
+            transform: scale(1.2) rotate(10deg);
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .fork-stat i {
+            transform: scale(1.1);
+            color: #1d2021;
+        }
+
+        .repo-description-section {
+            flex: 1;
+            padding-top: 8px;
+        }
+
+        .repo-description {
+            color: #a89984;
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+
+
+        .github-repo-card {
+            background: #3c3836;
+            border: 1px solid var(--secondary_color);
+            border-radius: 16px;
+            padding: 15px;
+            margin: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-repo-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent_color);
+            background: linear-gradient(135deg, var(--accent_color) 0%, #83a598 100%);
+            z-index: 10;
+        }
+
+        .github-repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent_color) 0%, var(--color_one) 50%, var(--primary_color) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .github-repo-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
+
+        .repo-icon {
+            font-size: 24px;
+            color: var(--primary_color);
+            margin-top: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: var(--accent_color);
+            transform: scale(1.1);
+        }
+
+        .repo-title-section {
+            flex: 1;
+        }
+
+        .repo-name {
+            color: var(--text_color);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .github-repo-card:hover .repo-name {
+            color: #1d2021;
+        }
+
+        .repo-subtitle {
+            color: var(--primary_color);
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .repo-stats-bottom {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 5px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--primary_color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-stat {
+            background: rgba(168, 153, 132, 0.1);
+            padding: 4px 10px;
+            border-radius: 18px;
+            border: 1px solid rgba(168, 153, 132, 0.2);
+        }
+
+        .github-repo-card:hover .language-stat {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 0, 0, 0.4);
+            color: #282828;
+        }
+
+        .github-repo-card:hover .stat-item {
+            color: #282828;
+        }
+
+        .language-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(249, 245, 215, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .github-repo-card:hover .language-dot {
+            transform: scale(1.15);
+        }
+
+        .language-dot.python { background: var(--accent_color); }
+        .language-dot.javascript { background: #fabd2f; }
+        .language-dot.typescript { background: var(--color_one); }
+        .language-dot.css { background: #d3869b; }
+        .language-dot.shell { background: #8ec07c; }
+        .language-dot.go { background: #689d6a; }
+
+        .star-stat i, .fork-stat i {
+            color: #fabd2f;
+            transition: all 0.3s ease;
+        }
+
+        .github-repo-card:hover .star-stat i {
+            transform: scale(1.2) rotate(10deg);
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .fork-stat i {
+            transform: scale(1.1);
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .repo-subtitle {
+            color: #282828;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: #1d2021;
+        }
+
+        .repo-description-section {
+            flex: 1;
+            padding-top: 5px;
+        }
+
+        .repo-description {
+            color: var(--color_two);
+            font-size: 11px;
+            line-height: 1.3;
+            margin: 0 0 8px 0;
+            font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .github-repo-card:hover .repo-description {
+            color: #282828;
+        }
+
+        /* Floating Cards Space Effect */
+        .floating-cards-container {
+            position: relative;
+            min-height: 80vh;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px;
+            background: radial-gradient(ellipse at center, rgba(69, 133, 136, 0.05) 0%, transparent 70%);
+        }
+
+        .floating-card-wrapper {
+            position: absolute;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: grab;
+            user-select: none;
+        }
+
+        .floating-card-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .floating-card-wrapper:nth-child(1) {
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .floating-card-wrapper:nth-child(2) {
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .floating-card-wrapper:nth-child(3) {
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        .floating-card-wrapper:nth-child(4) {
+            animation: float4 9s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(1deg); }
+            50% { transform: translate(-5px, 10px) rotate(-0.5deg); }
+            75% { transform: translate(15px, 5px) rotate(0.5deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-12px, 8px) rotate(-0.8deg); }
+            66% { transform: translate(8px, -10px) rotate(0.7deg); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(6px, -8px) rotate(0.3deg); }
+            40% { transform: translate(-10px, 12px) rotate(-0.6deg); }
+            60% { transform: translate(12px, -6px) rotate(0.4deg); }
+            80% { transform: translate(-8px, -10px) rotate(-0.2deg); }
+        }
+
+        @keyframes float4 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            30% { transform: translate(-8px, -12px) rotate(-0.4deg); }
+            70% { transform: translate(10px, 8px) rotate(0.6deg); }
+        }
+
+        .floating-card {
+            width: 380px;
+            max-width: 380px;
+            height: 200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating-card-wrapper:hover {
+            z-index: 10;
+            transform: scale(1.05) !important;
+        }
+
+        .floating-card-wrapper:hover .floating-card {
+            box-shadow: 0 25px 80px rgba(69, 133, 136, 0.4);
+        }
+
+        .floating-card-wrapper.dragging {
+            z-index: 1000;
+            animation: none !important;
+            transition: none !important;
+        }
+
+        .floating-card-wrapper.dragging .floating-card {
+            transform: rotate(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Responsive adjustments for floating cards */
+        @media (max-width: 1200px) {
+            .floating-card {
+                width: 340px;
+                max-width: 340px;
+                height: 180px;
+            }
+            .floating-cards-container {
+                min-height: 75vh;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-cards-container {
+                min-height: 70vh;
+                padding: 10px;
+            }
+            .floating-card {
+                width: 300px;
+                max-width: 300px;
+                height: 160px;
+            }
+            .github-repo-card {
+                padding: 12px;
+            }
+            .repo-header {
+                margin-bottom: 8px;
+                gap: 10px;
+            }
+            .repo-name {
+                font-size: 15px;
+            }
+            .repo-subtitle {
+                font-size: 11px;
+            }
+            .repo-description {
+                font-size: 10px;
+                margin-bottom: 6px;
+            }
+            .repo-stats-bottom {
+                gap: 10px;
+                padding-top: 3px;
+            }
+        }
+
+        /* Fix "Wanna Hire Me" Section Padding */
+        .d2c_c2a_wrapper.d2c_service_c2a {
+            padding: 60px 0 80px !important;
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .github-repo-card {
+                height: 240px;
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+            
+            .repo-stats-top {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                font-size: 10px;
+            }
+            
+            .repo-name {
+                font-size: 14px;
+            }
+
+            .d2c_services_wrapper.d2c_service_page {
+                padding: 60px 0 40px !important;
+            }
+
+            .d2c_c2a_wrapper.d2c_service_c2a {
+                padding: 40px 0 60px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Service Page Start -->
+
+    <!--  Preloader Start  -->
+    <div class="preloader">
+        <span class="ef-logo">EF</span>
+    </div>
+    <!--  Preloader End  -->
+
+    <!-- Header Start -->
+    <header class="d2c_navbar sticky-top">
+        <div class="container">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg" id="d2c_main_nav">
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html"><span class="ef-logo">EF</span></a>
+                <!-- Logo -->
+
+                <!-- HamBurger -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <!-- HamBurger -->
+
+                <!-- Nav Item -->
+                <div class="collapse navbar-collapse js-clone-nav justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/service.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/blog.html">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn d2c_nav_btn" href="./pages/contact.html">Connect With Me</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Nav Item -->
+            </nav>
+            <!-- Navbar -->
+
+            <!-- Tab And Mobile View -->
+            <div class="collapse navbar-collapse d2c_mobile_view" id="navbarSupportedContent">
+                <div class="show_width container">
+                    <div class="text-right">
+                        <button class="navbar-toggler d2c_cross_btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fa fa-times"></i></span>
+                        </button>
+                    </div>
+                    
+                    <div class="navbar d2c_mobile_view_body"></div>
+                </div>
+            </div>
+            <!-- Tab And Mobile View -->
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <div class="d2c_service_page_wrapper">
+            <!-- Services Section Start -->
+        <section class="d2c_testimonial_wrapper github-repos-section">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center mb-4 wow fadeInUp">
+                    <div class="text-center">
+                        <h2 class="mb-2">My Projects</h2>
+                        <p class="mb-0">Explore my open-source projects and contributions</p>
+                    </div>
+                </div>
+                <div class="floating-cards-container wow fadeInUp" id="floating-cards-container">
+                    <!-- Floating cards for space effect -->
+                    <div class="floating-card-wrapper">
+                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/ai-automation-suite">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">AI-Automation-Suite</h5>
+                                    <p class="repo-subtitle">Intelligent Process Automation Platform</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">AI automation platform with ML integration for business processes.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot python"></div>
+                                    <span class="language-name">Python</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>156</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>42</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card-wrapper">
+                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/cloud-infrastructure-toolkit">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">Cloud-Infrastructure-Toolkit</h5>
+                                    <p class="repo-subtitle">DevOps Configuration Management</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">DevOps toolkit for cloud deployment with automated scaling.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot shell"></div>
+                                    <span class="language-name">Shell</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>203</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>67</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card-wrapper">
+                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/web-analytics-dashboard">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">Web-Analytics-Dashboard</h5>
+                                    <p class="repo-subtitle">Real-time Data Visualization</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">Web analytics with real-time data processing and visualization.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot javascript"></div>
+                                    <span class="language-name">JavaScript</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>89</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card-wrapper">
+                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/reactflow-dashboard">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">ReactFlow-Dashboard</h5>
+                                    <p class="repo-subtitle">Interactive Data Visualization Platform</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">React dashboard with TypeScript and real-time data visualization.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot typescript"></div>
+                                    <span class="language-name">TypeScript</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>89</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>17</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section End -->
+    </div>
+
+
+    <!-- Footer Section Start -->
+    <footer class="d2c_footer_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
+                    <a href="../index.html"><span class="ef-logo">EF</span></a>
+                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
+                    <div class="d2c_contact_details">
+                        <h5>Contact Details</h5>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2">
+                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">+88 219 555-0114</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2">
+                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0">reactprox@mail.com</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center">
+                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInRight">
+                    <div class="d2c_footer_newsletter">
+                        <h5>Newsletter</h5>
+                        <form class="needs-validation" novalidate>
+                            <div class="input-group h-100">
+                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
+                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                        <ul class="list-group list-group-horizontal">
+                            <li>
+                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copy Right Start -->
+        <div class="container">
+            <div class="d2c_copy_right_wrapper">
+                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+        <!-- Copy Right End -->
+    </footer>
+    <!-- Footer Section End -->
+    
+    <!-- Scroll Button Start -->
+    <div id="scrollBtn" class="d2c_scroll_btn">
+        <a href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+    <!-- Scroll Button  End -->
+
+    <!-- Service Page Start -->
+    
+    
+
+
+    <!-- JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- WOW Animation JS -->
+    <script src="../lib/WOW-master/dist/wow.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../lib/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <!-- fancybox Image -->
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- Slider JS Link -->
+    <script src="../lib/slick-1.8.1/slick/slick.min.js"></script>
+    <!-- Main JS Link -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/starfield.js"></script>
+    <!-- GitHub Repos JS -->
+    <script src="../assets/js/github-repos.js"></script>
+    
+    <!-- Floating Cards Drag Script -->
+    <script>
+        $(document).ready(function() {
+            let isDragging = false;
+            let dragOffset = { x: 0, y: 0 };
+            let currentCard = null;
+            let clickStartTime = 0;
+            let clickStartPos = { x: 0, y: 0 };
+
+            $('.floating-card-wrapper').on('mousedown', function(e) {
+                e.preventDefault();
+                isDragging = false;
+                currentCard = $(this);
+                clickStartTime = Date.now();
+                clickStartPos = { x: e.clientX, y: e.clientY };
+                
+                const rect = this.getBoundingClientRect();
+                dragOffset.x = e.clientX - rect.left;
+                dragOffset.y = e.clientY - rect.top;
+                
+                currentCard.addClass('dragging');
+                
+                $(document).on('mousemove.drag', function(e) {
+                    const distance = Math.sqrt(
+                        Math.pow(e.clientX - clickStartPos.x, 2) + 
+                        Math.pow(e.clientY - clickStartPos.y, 2)
+                    );
+                    
+                    if (distance > 5) {
+                        isDragging = true;
+                        const container = $('.floating-cards-container');
+                        const containerRect = container[0].getBoundingClientRect();
+                        
+                        // Account for container padding (responsive)
+                        let containerPadding = {
+                            left: 20,
+                            top: 20,
+                            right: 20,
+                            bottom: 20
+                        };
+                        
+                        // Adjust padding for smaller screens
+                        if (window.innerWidth <= 1200) {
+                            containerPadding = { left: 15, top: 15, right: 15, bottom: 15 };
+                        }
+                        if (window.innerWidth <= 768) {
+                            containerPadding = { left: 10, top: 10, right: 10, bottom: 10 };
+                        }
+                        
+                        let newX = e.clientX - containerRect.left - dragOffset.x;
+                        let newY = e.clientY - containerRect.top - dragOffset.y;
+                        
+                        // Keep cards within container bounds with padding
+                        const cardWidth = currentCard.outerWidth();
+                        const cardHeight = currentCard.outerHeight();
+                        
+                        const minX = containerPadding.left;
+                        const maxX = container.width() - cardWidth - containerPadding.right;
+                        const minY = containerPadding.top;
+                        const maxY = container.height() - cardHeight - containerPadding.bottom;
+                        
+                        newX = Math.max(minX, Math.min(newX, maxX));
+                        newY = Math.max(minY, Math.min(newY, maxY));
+                        
+                        currentCard.css({
+                            left: newX + 'px',
+                            top: newY + 'px',
+                            right: 'auto',
+                            bottom: 'auto'
+                        });
+                    }
+                });
+                
+                $(document).on('mouseup.drag', function(e) {
+                    $(document).off('mousemove.drag mouseup.drag');
+                    
+                    if (currentCard) {
+                        currentCard.removeClass('dragging');
+                        
+                        // If it was a click (not a drag), handle the card click
+                        const clickDuration = Date.now() - clickStartTime;
+                        const distance = Math.sqrt(
+                            Math.pow(e.clientX - clickStartPos.x, 2) + 
+                            Math.pow(e.clientY - clickStartPos.y, 2)
+                        );
+                        
+                        if (!isDragging && clickDuration < 300 && distance < 5) {
+                            const repoUrl = currentCard.find('.github-repo-card').data('repo-url');
+                            if (repoUrl) {
+                                window.open(repoUrl, '_blank');
+                            }
+                        }
+                        
+                        currentCard = null;
+                        isDragging = false;
+                    }
+                });
+            });
+
+            // Prevent text selection while dragging
+            $('.floating-card-wrapper').on('selectstart dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Position cards randomly near center on page load
+            function positionCardsRandomly() {
+                const container = $('.floating-cards-container');
+                const containerWidth = container.width();
+                const containerHeight = container.height();
+                let cardWidth = 380;
+                let cardHeight = 200;
+                
+                // Adjust card dimensions for responsive breakpoints
+                if (window.innerWidth <= 1200) {
+                    cardWidth = 340;
+                    cardHeight = 180;
+                }
+                if (window.innerWidth <= 768) {
+                    cardWidth = 300;
+                    cardHeight = 160;
+                }
+                
+                // Responsive padding
+                let padding = { left: 20, top: 20, right: 20, bottom: 20 };
+                if (window.innerWidth <= 1200) {
+                    padding = { left: 15, top: 15, right: 15, bottom: 15 };
+                }
+                if (window.innerWidth <= 768) {
+                    padding = { left: 10, top: 10, right: 10, bottom: 10 };
+                }
+                
+                // Calculate safe area (entire container minus padding)
+                const safeWidth = containerWidth - cardWidth - padding.left - padding.right;
+                const safeHeight = containerHeight - cardHeight - padding.top - padding.bottom;
+                
+                // Spread across entire area (90% of safe area for more coverage)
+                const centerX = safeWidth / 2;
+                const centerY = safeHeight / 2;
+                const radiusX = safeWidth * 0.45; // Increased from 0.2 to 0.45
+                const radiusY = safeHeight * 0.45; // Increased from 0.2 to 0.45
+                
+                const positions = [];
+                const minDistance = 120; // Reduced minimum distance for better spread
+                
+                $('.floating-card-wrapper').each(function(index) {
+                    let attempts = 0;
+                    let validPosition = false;
+                    let x, y;
+                    
+                    while (!validPosition && attempts < 50) {
+                        // Random position within center region
+                        x = padding.left + centerX + (Math.random() - 0.5) * 2 * radiusX;
+                        y = padding.top + centerY + (Math.random() - 0.5) * 2 * radiusY;
+                        
+                        // Ensure within bounds
+                        x = Math.max(padding.left, Math.min(x, padding.left + safeWidth));
+                        y = Math.max(padding.top, Math.min(y, padding.top + safeHeight));
+                        
+                        // Check distance from other cards
+                        validPosition = true;
+                        for (let pos of positions) {
+                            const distance = Math.sqrt(Math.pow(x - pos.x, 2) + Math.pow(y - pos.y, 2));
+                            if (distance < minDistance) {
+                                validPosition = false;
+                                break;
+                            }
+                        }
+                        attempts++;
+                    }
+                    
+                    // If we couldn't find a good spot, use a fallback grid position
+                    if (!validPosition) {
+                        const gridX = (index % 2) * (safeWidth / 2) + padding.left;
+                        const gridY = Math.floor(index / 2) * (safeHeight / 2) + padding.top;
+                        x = gridX;
+                        y = gridY;
+                    }
+                    
+                    positions.push({ x, y });
+                    
+                    $(this).css({
+                        left: x + 'px',
+                        top: y + 'px',
+                        right: 'auto',
+                        bottom: 'auto'
+                    });
+                });
+            }
+
+            // Position cards after a brief delay
+            setTimeout(positionCardsRandomly, 500);
+
+            // Add hover effect that pauses animation
+            $('.floating-card-wrapper').hover(
+                function() {
+                    $(this).css('animation-play-state', 'paused');
+                },
+                function() {
+                    if (!$(this).hasClass('dragging')) {
+                        $(this).css('animation-play-state', 'running');
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+    Template Name: {{ReactProx- React Developer Portfolio Website Templates}}
+    Template URL: {{https://designtocodes.com/product/reactprox-react-developer-portfolio-website-templates}}
+    Description: {{Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.}}
+    Author: DesignToCodes
+    Author URL: https://www.designtocodes.com
+    Text Domain: {{ React Prox }}
+ -->

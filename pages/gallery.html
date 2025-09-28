@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Deafult Meta Tag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OG Meta Tag -->
+    <meta name="robots" content="index, follow">
+    <meta name="og:title" content="ReactProx- React Developer Portfolio Website Templates">
+    <meta name="og:description" content="Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.">
+    <meta property="og:image" content="https://designtocodes.com/wp-content/uploads/2024/02/ReactProx-React-Developer-Portfolio-Website-Templates.jpg">
+    <!-- Title -->
+    <title>Eli Fouts | Gallery</title>
+    <!-- Favicon -->
+    <link rel="icon" id="favicon" href="../assets/images/favicon.png" type="image/gif" sizes="16x16">
+    <!-- Animate CSS Link -->
+    <link rel="stylesheet" href="../lib/WOW-master/css/libs/animate.css">
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 5 CDN/ Icon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- fancybox image gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <!-- Slider CSS Link -->
+    <link rel="stylesheet" href="../lib/slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="../lib/slick-1.8.1/slick/slick-theme.css">
+    <!-- Bootstarp CSS -->
+    <link rel="stylesheet" href="../lib/bootstrap-5/css/bootstrap.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Button Animation CSS -->
+    <link rel="stylesheet" href="../assets/css/button-animation.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .ef-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: var(--primary_color);
+            text-decoration: none;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            background: linear-gradient(
+                45deg,
+                var(--accent-yellow, #a89984) 0%,
+                var(--accent-blue, #7c6f64) 50%,
+                var(--accent-purple, #f9f5d7) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .ef-logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--accent-yellow, #a89984),
+                var(--accent-blue, #7c6f64),
+                var(--accent-purple, #f9f5d7)
+            );
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .ef-logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .ef-logo:hover {
+            text-shadow: 0 0 10px rgba(69, 133, 136, 0.5);
+        }
+
+        .preloader .ef-logo {
+            font-size: 48px;
+        }
+
+        /* Navigation Button Smaller Size */
+        .d2c_nav_btn {
+            font-size: 14px !important;
+            padding: 8px 24px 7px !important;
+        }
+
+        /* Reduce Top Bar Margins */
+        .d2c_navbar .container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        
+        /* Clean Gallery Grid */
+        .masonry-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 0;
+            padding: 20px 0;
+            transition: all 6s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+        
+
+        
+        @media (max-width: 768px) {
+            .masonry-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masonry-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        .gallery-item {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .gallery-item.expanding {
+            animation: expandIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        
+        @keyframes expandIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        /* Enhanced Lightbox Styles with More Transparency and Blur */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+            backdrop-filter: blur(25px) saturate(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .lightbox.show {
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            animation: lightboxZoom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes lightboxZoom {
+            from {
+                transform: translate(-50%, -50%) scale(0.5) rotate(10deg);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+        
+        .lightbox img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.3),
+                0 15px 40px rgba(69, 133, 136, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.15);
+        }
+        
+        /* Lightbox Controls */
+        .lightbox-controls {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 10001;
+        }
+        
+        .lightbox-btn {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-decoration: none;
+        }
+        
+        .lightbox-btn:hover {
+            background: rgba(69, 133, 136, 0.3);
+            transform: scale(1.1);
+            color: var(--secondary_color);
+        }
+        
+        .lightbox-close {
+            font-size: 24px;
+        }
+        
+        .lightbox-close:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+        
+        .lightbox-fullscreen:hover {
+            transform: scale(1.1);
+        }
+        
+        .lightbox-download:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Fullscreen mode */
+        .lightbox.fullscreen .lightbox-content {
+            max-width: 100%;
+            max-height: 100%;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .lightbox.fullscreen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+        
+        .hidden-gallery {
+            display: none;
+        }
+        
+        /* Standard Button Styles */
+        .d2c_project_btn {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        /* Loading Animation for Cards */
+        .gallery-item.loading {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation: cardSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        @keyframes cardSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        /* Button Loading State */
+        .gallery-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .gallery-btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--secondary_color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .gallery-btn.loading i,
+        .gallery-btn.loading span {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- About Page Start -->
+
+    <!--  Preloader Start  -->
+    <div class="preloader">
+        <span class="ef-logo">EF</span>
+    </div>
+    <!--  Preloader End  -->
+
+    <!-- Header Start -->
+    <header class="d2c_navbar sticky-top">
+        <div class="container">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg" id="d2c_main_nav">
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html"><span class="ef-logo">EF</span></a>
+                <!-- Logo -->
+
+                <!-- HamBurger -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <!-- HamBurger -->
+
+                <!-- Nav Item -->
+                <div class="collapse navbar-collapse js-clone-nav justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./service.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./blog.html">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn d2c_nav_btn" href="./contact.html">Connect With Me</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Nav Item -->
+            </nav>
+            <!-- Navbar -->
+
+            <!-- Tab And Mobile View -->
+            <div class="collapse navbar-collapse d2c_mobile_view" id="navbarSupportedContent">
+                <div class="show_width container">
+                    <div class="text-right">
+                        <button class="navbar-toggler d2c_cross_btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fa fa-times"></i></span>
+                        </button>
+                    </div>
+                    
+                    <div class="navbar d2c_mobile_view_body"></div>
+                </div>
+            </div>
+            <!-- Tab And Mobile View -->
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Project Section Start -->
+    <section class="d2c_project_wrapper d2c_project_page text-center">
+        <div class="container">
+            <h2>recent Projects</h2>
+            <p>I've diverse background in technology, which mean I'm always learning new skills.</p>
+            <!-- Masonry Gallery Container -->
+            <div class="masonry-gallery" id="gallery-container"></div>
+            <div class="d2c_project_btn">
+                <button id="see-more-btn" class="btn">
+                    More
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Project Section End -->
+
+    <!-- Enhanced Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-controls">
+            <a href="#" id="lightbox-download" class="lightbox-btn lightbox-download" title="Download Image">
+                <i class="fas fa-download"></i>
+            </a>
+            <button id="lightbox-fullscreen" class="lightbox-btn lightbox-fullscreen" title="Toggle Fullscreen">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button class="lightbox-btn lightbox-close" title="Close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+    </div>
+
+    <!-- Footer Section Start -->
+    <footer class="d2c_footer_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
+                    <a href="../index.html"><span class="ef-logo">EF</span></a>
+                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
+                    <div class="d2c_contact_details">
+                        <h5>Contact Details</h5>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2">
+                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">+88 219 555-0114</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center mb-2">
+                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0">reactprox@mail.com</p>
+                        </div>
+                        <div class="d2c_info_wrapper d-flex align-items-center">
+                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInRight">
+                    <div class="d2c_footer_newsletter">
+                        <h5>Newsletter</h5>
+                        <form class="needs-validation" novalidate>
+                            <div class="input-group h-100">
+                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
+                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                        <ul class="list-group list-group-horizontal">
+                            <li>
+                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copy Right Start -->
+        <div class="container">
+            <div class="d2c_copy_right_wrapper">
+                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+        <!-- Copy Right End -->
+    </footer>
+    <!-- Footer Section End -->
+        
+    <!-- Scroll Button Start -->
+    <div id="scrollBtn" class="d2c_scroll_btn">
+        <a href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+    <!-- Scroll Button  End -->
+
+    <!-- About Page Start -->
+    
+    
+
+
+    <!-- JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Easing for enhanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- WOW Animation JS -->
+    <script src="../lib/WOW-master/dist/wow.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../lib/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <!-- fancybox Image -->
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- Slider JS Link -->
+    <script src="../lib/slick-1.8.1/slick/slick.min.js"></script>
+    <!-- Main JS Link -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/starfield.js"></script>
+    
+    <!-- Dynamic Masonry Gallery Script -->
+    <script>
+        $(document).ready(function() {
+            // Gallery images - ADD NEW IMAGES HERE EASILY! Just add one line like: 'path/to/image.jpg',
+            const galleryImages = [
+                '../assets/images/project_img_one.jpg',
+                '../assets/images/project_img_two.jpg',
+                '../assets/images/project_img_three.jpg',
+                '../assets/images/project_img_four.jpg',
+                '../assets/images/project_img_five.jpg',
+                '../assets/images/project_img_six.jpg',
+                '../assets/images/project_img_one.jpg',
+                '../assets/images/project_img_two.jpg',
+                '../assets/images/project_img_three.jpg',
+                '../assets/images/project_img_four.jpg',
+                '../assets/images/project_img_five.jpg',
+                '../assets/images/project_img_six.jpg',
+                '../assets/images/project_img_one.jpg',
+                '../assets/images/project_img_two.jpg',
+                '../assets/images/project_img_three.jpg',
+                '../assets/images/project_img_four.jpg',
+                '../assets/images/project_img_five.jpg',
+                '../assets/images/project_img_six.jpg',
+                '../assets/images/project_img_one.jpg',
+                '../assets/images/project_img_two.jpg',
+                '../assets/images/project_img_three.jpg',
+                '../assets/images/project_img_four.jpg',
+                '../assets/images/project_img_five.jpg',
+                '../assets/images/project_img_six.jpg'
+            ];
+            
+            let itemsShown = 6; // Initially show 6 items
+            const itemsPerLoad = 12; // Load 12 more items each time
+            
+            // Create simple gallery item
+            function createGalleryItem(imageSrc, index) {
+                return `
+                    <div class="gallery-item" data-index="${index}">
+                        <img src="${imageSrc}" alt="Project ${index + 1}">
+                    </div>
+                `;
+            }
+            
+            // Load initial images
+            function loadInitialImages() {
+                const container = $('#gallery-container');
+                for (let i = 0; i < Math.min(itemsShown, galleryImages.length); i++) {
+                    container.append(createGalleryItem(galleryImages[i], i));
+                }
+                setupLightbox();
+            }
+            
+            // Load more images with smooth expand animation
+            function loadMoreImages() {
+                const container = $('#gallery-container');
+                const endIndex = Math.min(itemsShown + itemsPerLoad, galleryImages.length);
+                
+                let delay = 0;
+                for (let i = itemsShown; i < endIndex; i++) {
+                    setTimeout(() => {
+                        const newItem = $(createGalleryItem(galleryImages[i], i));
+                        newItem.addClass('expanding');
+                        container.append(newItem);
+                        
+                        // Setup lightbox for this new item immediately
+                        setupLightboxForItem(newItem);
+                        
+                        // Remove animation class after animation completes
+                        setTimeout(() => {
+                            newItem.removeClass('expanding');
+                        }, 600);
+                    }, delay);
+                    delay += 50; // Stagger slightly for smooth wave effect
+                }
+                
+                itemsShown = endIndex;
+                updateButtons();
+            }
+            
+            // Setup lightbox for a specific item
+            function setupLightboxForItem($item) {
+                $item.off('click').on('click', function() {
+                    const imgSrc = $(this).find('img').attr('src');
+                    const imgAlt = $(this).find('img').attr('alt');
+                    
+                    $('#lightbox-img').attr('src', imgSrc).attr('alt', imgAlt);
+                    $('#lightbox-download').attr('href', imgSrc).attr('download', imgAlt + '.jpg');
+                    $('#lightbox').show().addClass('show');
+                    $('body').css('overflow', 'hidden');
+                });
+            }
+            
+            // Setup enhanced lightbox functionality for all items
+            function setupLightbox() {
+                $('.gallery-item').each(function() {
+                    setupLightboxForItem($(this));
+                });
+            }
+            
+            // Close lightbox with enhanced animation
+            function closeLightbox() {
+                $('#lightbox').removeClass('show').removeClass('fullscreen');
+                $('#lightbox-fullscreen i').removeClass('fa-compress').addClass('fa-expand');
+                setTimeout(() => {
+                    $('#lightbox').hide();
+                    $('body').css('overflow', 'auto');
+                }, 500);
+            }
+            
+            // Lightbox controls
+            $('.lightbox-close').click(function(e) {
+                e.preventDefault();
+                closeLightbox();
+            });
+            
+            $('#lightbox').click(function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+            
+            // Fullscreen toggle
+            $('#lightbox-fullscreen').click(function(e) {
+                e.preventDefault();
+                const lightbox = $('#lightbox');
+                const icon = $(this).find('i');
+                
+                if (lightbox.hasClass('fullscreen')) {
+                    lightbox.removeClass('fullscreen');
+                    icon.removeClass('fa-compress').addClass('fa-expand');
+                } else {
+                    lightbox.addClass('fullscreen');
+                    icon.removeClass('fa-expand').addClass('fa-compress');
+                }
+            });
+            
+            // Escape key to close lightbox
+            $(document).keyup(function(e) {
+                if (e.keyCode === 27) {
+                    closeLightbox();
+                }
+            });
+            
+            // Simple button functionality
+            function updateButtons() {
+                const remaining = galleryImages.length - itemsShown;
+                
+                if (remaining > 0) {
+                    $('#see-more-btn').text('More').show();
+                } else {
+                    $('#see-more-btn').hide();
+                }
+            }
+            
+            // Simple button click
+            $('#see-more-btn').click(function(e) {
+                e.preventDefault();
+                loadMoreImages();
+            });
+            
+
+            
+            // Initialize gallery
+            loadInitialImages();
+            updateButtons();
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+    Template Name: {{ReactProx- React Developer Portfolio Website Templates}}
+    Template URL: {{https://designtocodes.com/product/reactprox-react-developer-portfolio-website-templates}}
+    Description: {{Purchase your ReactProx- React Developer Portfolio and get seamless integration for react projects plus top-notch portfolio as well.}}
+    Author: DesignToCodes
+    Author URL: https://www.designtocodes.com
+    Text Domain: {{ React Prox }}
+ -->
