@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- fancybox image gallery -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-    <!-- Slider CSS Link -->
+    <!-- Slick Slider CSS -->
     <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick-theme.css">
     <!-- Bootstarp 5 CSS -->
@@ -103,26 +102,38 @@
         .github-repos-section {
             background: var(--section_bg);
             padding: 80px 0;
+            overflow-x: hidden;
+        }
+
+        /* Universal override - works on ANY screen */
+        * {
+            box-sizing: border-box;
+        }
+        
+        .github-repos-section * {
+            box-sizing: border-box !important;
         }
 
         .github-repos-section .col {
-            padding-left: 10px;
-            padding-right: 10px;
+            padding: 0 !important;
         }
 
         .github-repo-card {
             background: #3c3836;
             border: 1px solid var(--secondary_color);
             border-radius: 16px;
-            padding: 20px;
-            margin: 0 0 35px 0;
+            padding: 18px 22px 16px 22px;
+            margin: 0 !important;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
-            height: calc(100% - 35px);
+            min-width: 360px;
+            max-width: 450px;
+            width: 100% !important;
+            height: 180px;
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
+            overflow: hidden;  
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
@@ -155,8 +166,8 @@
         .repo-header {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 16px;
-            gap: 14px;
+            margin-bottom: 8px;
+            gap: 10px;
         }
 
         .repo-icon {
@@ -177,10 +188,10 @@
 
         .repo-name {
             color: var(--text_color);
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin: 0 0 6px 0;
-            line-height: 1.3;
+            margin: 0 0 4px 0;
+            line-height: 1.2;
             letter-spacing: -0.01em;
             transition: color 0.3s ease;
         }
@@ -191,18 +202,18 @@
 
         .repo-subtitle {
             color: var(--primary_color);
-            font-size: 13px;
-            margin: 0;
-            line-height: 1.4;
+            font-size: 12px;
+            margin: 0 0 2px 0 !important;
+            line-height: 1.3;
             font-weight: 400;
             opacity: 0.9;
         }
 
         .repo-stats-bottom {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 4px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -210,8 +221,8 @@
         .stat-item {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 12px;
+            gap: 4px;
+            font-size: 11px;
             color: var(--primary_color);
             font-weight: 500;
             transition: all 0.3s ease;
@@ -219,8 +230,8 @@
 
         .language-stat {
             background: rgba(168, 153, 132, 0.1);
-            padding: 4px 10px;
-            border-radius: 18px;
+            padding: 3px 8px;
+            border-radius: 12px;
             border: 1px solid rgba(168, 153, 132, 0.2);
         }
 
@@ -235,11 +246,11 @@
         }
 
         .language-dot {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 0 2px rgba(249, 245, 215, 0.1);
+            box-shadow: 0 0 0 1px rgba(249, 245, 215, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -283,19 +294,58 @@
 
         .repo-description-section {
             flex: 1;
-            padding-top: 8px;
+            padding-top: 0px;
         }
 
         .repo-description {
             color: var(--color_two);
-            font-size: 12px;
-            line-height: 1.4;
-            margin: 0 0 15px 0;
+            font-size: 11px;
+            line-height: 1.3;
+            margin: 0 0 8px 0 !important;
             font-weight: 400;
         }
 
         .github-repo-card:hover .repo-description {
             color: #282828;
+        }
+
+        /* Override any global paragraph styles that might interfere */
+        .github-repo-card p {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .github-repo-card .repo-subtitle {
+            margin: 0 0 2px 0 !important;
+        }
+
+        .github-repo-card .repo-description {
+            margin: 0 0 8px 0 !important;
+        }
+
+        /* FORCE spacing with padding on wrapper - this WILL work */
+        .project-card-wrapper {
+            padding: 0 16px !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Override Slick.js styles completely */
+        .slick-slide .project-card-wrapper {
+            padding: 0 16px !important;
+        }
+
+        .slick-track .project-card-wrapper {
+            padding: 0 16px !important;
+        }
+
+        /* Make sure first and last cards also have padding */
+        .project-card-wrapper:first-child {
+            padding-left: 16px !important;
+        }
+
+        .project-card-wrapper:last-child {
+            padding-right: 16px !important;
         }
 
         /* Ensure slider doesn't clip hover effects */
@@ -387,6 +437,148 @@
                 background-position: 0% 50%;
             }
         }
+
+        /* Ensure slider doesn't clip hover effects */
+        .github-repo-slider {
+            overflow: visible !important;
+            padding: 10px 0 60px 0;
+        }
+
+        .github-repo-slider .slick-list {
+            overflow: visible !important;
+        }
+
+        .github-repo-slider .slick-track {
+            display: flex !important;
+            align-items: stretch;
+        }
+
+        .github-repo-slider .slick-slide {
+            height: inherit !important;
+            overflow: visible !important;
+        }
+
+        /* Project Slider Styling Only */
+        .project-slider {
+            overflow: visible !important;
+            padding: 20px 0;
+        }
+
+        .project-slider .slick-list {
+            overflow: visible !important;
+        }
+
+        .project-slider .slick-track {
+            display: flex !important;
+            align-items: stretch;
+        }
+
+        .project-slider .slick-slide {
+            height: inherit !important;
+            overflow: visible !important;
+            padding: 0 15px;
+        }
+
+        .project-slider .slick-dots {
+            display: none !important;
+        }
+
+        .project-slider .slick-arrow {
+            z-index: 100;
+        }
+
+        /* Neon glowing star and fork icons for index page */
+        .star-stat i, .fork-stat i {
+            color: var(--primary_color) !important;
+            text-shadow: 
+                0 0 5px rgba(168, 153, 132, 0.8),
+                0 0 10px rgba(168, 153, 132, 0.6),
+                0 0 15px rgba(168, 153, 132, 0.4),
+                0 0 20px rgba(168, 153, 132, 0.2) !important;
+            filter: brightness(1.2) !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .github-repo-card:hover .star-stat i {
+            color: #1d2021 !important;
+            text-shadow: 
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(0, 0, 0, 0.3) !important;
+            filter: brightness(1.1) !important;
+            transform: scale(1.2) rotate(10deg) !important;
+        }
+
+        .github-repo-card:hover .fork-stat i {
+            color: #1d2021 !important;
+            text-shadow: 
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(0, 0, 0, 0.3) !important;
+            filter: brightness(1.1) !important;
+            transform: scale(1.1) !important;
+        }
+
+        /* Gruvbox Rainbow Border for Dotfiles Card (when NOT hovered) */
+        .github-repo-card[data-repo-url*="Dotfiles"] {
+            position: relative;
+            overflow: visible;
+            border: 2px solid transparent;
+            background: linear-gradient(#3c3836, #3c3836) padding-box,
+                        linear-gradient(
+                            45deg,
+                            #d2b48c,  /* tan */
+                            #cbb898,  /* sand */
+                            #9fb0bf,  /* slate-blue */
+                            #6f98b3,  /* steel-blue */
+                            #417899,  /* deep-blue */
+                            #2f5068,  /* navy */
+                            #6b9fbf,  /* muted-cyan */
+                            #d2b48c   /* back to tan for smooth loop */
+                        ) border-box;
+            background-size: auto, 400% 400%;
+            border-radius: 20px;
+            animation: gruvboxRainbowBorder 12s ease-in-out infinite;
+        }
+
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent_color);
+            background: linear-gradient(45deg, #83a598, #458588, #689d6a, #b16286);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            z-index: 10;
+        }
+
+        @keyframes gruvboxRainbowBorder {
+            0% {
+                background-position: auto, 0% 50%;
+            }
+            25% {
+                background-position: auto, 100% 50%;
+            }
+            50% {
+                background-position: auto, 100% 0%;
+            }
+            75% {
+                background-position: auto, 0% 0%;
+            }
+            100% {
+                background-position: auto, 0% 50%;
+            }
+        }
+
+        /* Remove top accent bar on Dotfiles hover (disable both ::before and ::after) */
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover::before,
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover::after {
+            transform: scaleX(0) !important;
+            opacity: 0 !important;
+            transition: transform 0.2s ease, opacity 0.2s ease !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
@@ -464,8 +656,8 @@
                 <div class="col-lg-6 text-center text-lg-start order-1 order-lg-0 wow fadeInLeft">
                     <h6>Welcome to My Portfolio</h6>
                     <h1>I am <span class="neon-sign">Eli Fouts</span></h1>
-                    <h5>PLM Application Engineer</h5>
-                    <p class="pe-0 pe-xl-5">Welcome to my website, where you can explore my projects, view my resume, get in touch, and learn more about me.</p>
+                    <h5>Computer Science Student & PLM Application Engineer</h5>
+                    <p class="pe-0 pe-xl-5 wow fadeInUp fast-anim" data-wow-delay="0.1s">Hello! I'm Eli Fouts, currently studying Computer Science at the University of Cincinnati and co-oping at Saratech as a PLM Application Engineer. I'm passionate about computers, coding, hiking, and photography. Welcome to my website where you can explore my projects, view my resume, and get to know me better!</p>
                     <a href="pages/contact.html" class="btn">Hire Me</a>
                     <a href="pages/about.html" class="btn secondary_btn">Learn More</a>
                 </div>
@@ -494,10 +686,10 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-start wow fadeInRight">
                     <h2 class="wow fadeInUp fast-anim" data-wow-delay="0.1s">Get to Know Me</h2>
-                    <p class="mb-2 wow fadeInUp fast-anim" data-wow-delay="0.2s">Curious about the person behind ReactProx? Dive into my story, skills, and the journey that led me to the world of best for the React development. Let's connect on a personal level.</p>
-                    <p class="d2c_about_content wow fadeInUp fast-anim" data-wow-delay="0.3s">I've been part of the team that has built the front-end for an enterprise level web application in AngularJS. I've been a part of a team that has built a social network from scratch in Meteor.</p>
-                    <h5 class="wow fadeInUp fast-anim" data-wow-delay="0.4s">How can i help you</h5>
-                    <p class="wow fadeInUp fast-anim" data-wow-delay="0.5s">I've diverse background in technology, which mean I'm always learning new skills. I've worked with a wide range of technologies, including MS SQL Server and Python. One of my favorite characteristics of an employer is their passion for the work they are doing.</p>
+                    <p class="mb-2 wow fadeInUp fast-anim" data-wow-delay="0.2s">I'm Eli Fouts, a passionate Computer Science student at the University of Cincinnati with hands-on experience as a PLM Application Engineer at Saratech. My journey combines academic learning with real-world application in enterprise software solutions.</p>
+                    <p class="d2c_about_content wow fadeInUp fast-anim" data-wow-delay="0.3s">Beyond coding, I'm deeply interested in hiking and photography, which help me maintain a creative perspective and problem-solving mindset. I believe the best solutions come from balancing technical expertise with creative thinking.</p>
+                    <h5 class="wow fadeInUp fast-anim" data-wow-delay="0.4s">My Technical Journey</h5>
+                    <p class="wow fadeInUp fast-anim" data-wow-delay="0.5s">I have experience with diverse technologies including Shell scripting, CSS, Lua, TypeScript, and GLSL. My co-op experience at Saratech has given me valuable insights into PLM systems and enterprise application development. I'm always eager to learn new technologies and take on challenging projects.</p>
                     <a href="pages/contact.html" class="btn mt-3 wow fadeInUp" data-wow-delay="0.6s">Hire Me</a>
                 </div>
             </div>
@@ -506,137 +698,19 @@
     <!-- About Section End -->
 
     <!-- My Projects Section Start -->
-    <section class="d2c_testimonial_wrapper github-repos-section">
+    <section class="d2c_services_wrapper">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 wow fadeInUp">
                 <div>
-                    <h2 class="text-start mb-2">My Projects</h2>
-                    <p class="text-start mb-0">Explore my open-source projects and contributions</p>
+                    <h2 class="text-start mb-2 wow fadeInLeft" data-wow-delay="0.1s">My Projects</h2>
+                    <p class="text-start mb-0 wow fadeInLeft" data-wow-delay="0.2s">Explore my open-source projects and contributions</p>
                 </div>
-                <a href="pages/service.html" class="btn">See More</a>
+                <a href="pages/service.html" class="btn wow fadeInRight" data-wow-delay="0.3s">See More</a>
             </div>
-            <div class="row github-repo-slider wow fadeInUp" id="github-slider-container" style="overflow: visible;">
-                <!-- Temporary static cards for testing -->
-                <div class="col">
-                    <div class="github-repo-card" data-repo-url="https://github.com/username/ai-automation-suite">
-                        <div class="repo-header">
-                            <div class="repo-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="repo-title-section">
-                                <h5 class="repo-name">AI-Automation-Suite</h5>
-                                <p class="repo-subtitle">Intelligent Process Automation Platform</p>
-                            </div>
-                        </div>
-                        <div class="repo-description-section">
-                            <p class="repo-description">Advanced AI-powered automation platform with machine learning integration for streamlined business processes.</p>
-                        </div>
-                        <div class="repo-stats-bottom">
-                            <div class="stat-item language-stat">
-                                <div class="language-dot python"></div>
-                                <span class="language-name">Python</span>
-                            </div>
-                            <div class="stat-item star-stat">
-                                <i class="fas fa-star"></i>
-                                <span>156</span>
-                            </div>
-                            <div class="stat-item fork-stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>42</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="github-repo-card" data-repo-url="https://github.com/username/cloud-infrastructure-toolkit">
-                        <div class="repo-header">
-                            <div class="repo-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="repo-title-section">
-                                <h5 class="repo-name">Cloud-Infrastructure-Toolkit</h5>
-                                <p class="repo-subtitle">DevOps Configuration Management</p>
-                            </div>
-                        </div>
-                        <div class="repo-description-section">
-                            <p class="repo-description">Complete DevOps toolkit for cloud infrastructure deployment with automated scaling and monitoring capabilities.</p>
-                        </div>
-                        <div class="repo-stats-bottom">
-                            <div class="stat-item language-stat">
-                                <div class="language-dot shell"></div>
-                                <span class="language-name">Shell</span>
-                            </div>
-                            <div class="stat-item star-stat">
-                                <i class="fas fa-star"></i>
-                                <span>203</span>
-                            </div>
-                            <div class="stat-item fork-stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>67</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="github-repo-card" data-repo-url="https://github.com/username/web-analytics-dashboard">
-                        <div class="repo-header">
-                            <div class="repo-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="repo-title-section">
-                                <h5 class="repo-name">Web-Analytics-Dashboard</h5>
-                                <p class="repo-subtitle">Real-time Data Visualization</p>
-                            </div>
-                        </div>
-                        <div class="repo-description-section">
-                            <p class="repo-description">Interactive web analytics platform with real-time data processing and customizable visualization components.</p>
-                        </div>
-                        <div class="repo-stats-bottom">
-                            <div class="stat-item language-stat">
-                                <div class="language-dot javascript"></div>
-                                <span class="language-name">JavaScript</span>
-                            </div>
-                            <div class="stat-item star-stat">
-                                <i class="fas fa-star"></i>
-                                <span>89</span>
-                            </div>
-                            <div class="stat-item fork-stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>23</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="github-repo-card" data-repo-url="https://github.com/username/reactflow-dashboard">
-                        <div class="repo-header">
-                            <div class="repo-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="repo-title-section">
-                                <h5 class="repo-name">ReactFlow-Dashboard</h5>
-                                <p class="repo-subtitle">Interactive Data Visualization Platform</p>
-                            </div>
-                        </div>
-                        <div class="repo-description-section">
-                            <p class="repo-description">Modern dashboard solution built with React and TypeScript, featuring real-time data visualization.</p>
-                        </div>
-                        <div class="repo-stats-bottom">
-                            <div class="stat-item language-stat">
-                                <div class="language-dot typescript"></div>
-                                <span class="language-name">TypeScript</span>
-                            </div>
-                            <div class="stat-item star-stat">
-                                <i class="fas fa-star"></i>
-                                <span>89</span>
-                            </div>
-                            <div class="stat-item fork-stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>17</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row project-slider" id="project-slider-container">
+                <!-- GitHub API will populate this container dynamically -->
+
+
             </div>
         </div>
     </section>
@@ -647,44 +721,104 @@
         <div class="container">
             <h2 class="wow fadeInUp fast-anim">Gallery</h2>
             <p class="wow fadeInUp fast-anim" data-wow-delay="0.1s">I've diverse background in technology, which mean I'm always learning new skills.</p>
-            <div class="row">
+            <div class="row" id="random-gallery">
                 <div class="col-md-6 col-lg-4 mb-4 wow fadeInLeft">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_one.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-1" src="./assets/images/Gallery/EliFouts_Car_1.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInDown">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_two.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-2" src="./assets/images/Gallery/EliFouts_Cat_1.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInRight">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_three.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-3" src="./assets/images/Gallery/EliFouts_Lighting_2.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInLeft">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_four.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-4" src="./assets/images/Gallery/EliFouts_RuleOfThirds01.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_five.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-5" src="./assets/images/Gallery/EliFouts_Leaves_1.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInRight">
                     <div class="d2c_img_wrapper">
-                        <img src="./assets/images/project_img_six.jpg" class="w-100 h-100 rounded-3" alt="Project Image">
+                        <img id="gallery-img-6" src="./assets/images/Gallery/EliFouts_GoldenRule01.jpg" class="w-100 h-100 rounded-3" alt="Photography">
                     </div>
                 </div>
             </div>
-            <a href="pages/gallery.html" class="btn wow fadeInUp" data-wow-delay="0.5s">See more</a>
+            <div class="text-center">
+                <button id="refresh-gallery" class="btn me-3 wow fadeInUp" data-wow-delay="0.4s" onclick="refreshGallery()" style="background: var(--accent_color); border: 2px solid var(--accent_color); color: var(--text_color);">
+                    <i class="fas fa-sync-alt me-2"></i>More Photos
+                </button>
+                <a href="pages/gallery.html" class="btn wow fadeInUp" data-wow-delay="0.5s">See All</a>
+            </div>
         </div>
     </section>
     <!-- Project Section End -->
 
+    <!-- Random Gallery Script -->
+    <script>
+        // Simple Random Gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎨 Starting gallery...');
+            
+            const images = [
+                'EliFouts_Car_1.jpg',
+                'EliFouts_Cat_1.jpg', 
+                'EliFouts_Lighting_2.jpg',
+                'EliFouts_RuleOfThirds01.jpg',
+                'EliFouts_Leaves_1.jpg',
+                'EliFouts_GoldenRule01.jpg',
+                'EliFouts_Bed_1.jpg',
+                'EliFouts_Card_1.jpg',
+                'EliFouts_Depression_1.jpg',
+                'EliFouts_GoldenRule02.jpg',
+                'EliFouts_Leaf_1.jpg',
+                'EliFouts_Leaf_2.jpg',
+                'EliFouts_Legos_1.jpg',
+                'EliFouts_Lighting _1.jpg',
+                'EliFouts_Lighting _3.jpg',
+                'EliFouts_Mouse_1.jpg'
+            ];
 
+            function updateGallery() {
+                // Get 6 unique random images (no duplicates!)
+                const shuffled = [...images];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                const selectedImages = shuffled.slice(0, 6);
+                
+                for (let i = 1; i <= 6; i++) {
+                    const img = document.getElementById(`gallery-img-${i}`);
+                    if (img && selectedImages[i-1]) {
+                        img.src = `./assets/images/Gallery/${selectedImages[i-1]}`;
+                        console.log(`Updated slot ${i}: ${selectedImages[i-1]}`);
+                    } else {
+                        console.log(`Slot ${i} not found`);
+                    }
+                }
+                
+                console.log('Selected images (no duplicates):', selectedImages);
+            }
+
+            window.refreshGallery = function() {
+                console.log('🔄 Refreshing...');
+                updateGallery();
+            };
+
+            updateGallery();
+            console.log('✅ Gallery ready!');
+        });
+    </script>
 
     <!-- Call To Action Section Start -->
     <section class="d2c_c2a_wrapper text-center">
@@ -698,72 +832,9 @@
     </section>
     <!-- Call To Action Section End -->
 
-    <!-- Blog Section Start -->
-    <section class="d2c_blog_wrapper text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2 text-center wow fadeInDown">
-                    <h2 class="fast-anim">Useful Links</h2>
-                    <p class="fast-anim">Explore curated resources, tools, and references that I find valuable for development and engineering work.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="./assets/images/blog_img_one.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Let's Get Solution For Building Construction Work</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="./assets/images/blog_img_two.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Quick Tips for Time-Strapped Individuals solutions</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 offset-md-3 offset-lg-0 wow fadeInRight" data-wow-delay="0.4s">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="./assets/images/blog_img_three.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">DataAI - Free Tailwind App Landing Page Template</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="pages/blog.html" class="btn wow fadeInUp" data-wow-delay="0.6s">View More</a>
-        </div>
-    </section>
-    <!-- Blog Section End -->
+    <!-- Spacer Section Start -->
+    <div style="height: 80px;"></div>
+    <!-- Spacer Section End -->
 
     <!-- Footer Section Start -->
     <footer class="d2c_footer_wrapper">
@@ -771,22 +842,22 @@
             <div class="row">
                 <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
                     <a href="index.html" class="wow fadeInUp" data-wow-delay="0.2s"><span class="ef-logo">EF</span></a>
-                    <p class="mb-0 wow fadeInUp" data-wow-delay="0.4s">I've been working as web developer for the past two years, and have experience</p>
+                    <p class="mb-0 wow fadeInUp" data-wow-delay="0.4s">Computer Science student at UC, currently co-oping as a PLM Application Engineer at Saratech. Passionate about coding, hiking, and photography.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_contact_details">
                         <h5 class="wow fadeInUp" data-wow-delay="0.2s">Contact Details</h5>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2 wow fadeInLeft" data-wow-delay="0.4s">
-                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
-                            <p class="mb-0">+88 219 555-0114</p>
+                            <a href="tel:5139078569" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">(513) 907-8569</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2 wow fadeInLeft" data-wow-delay="0.6s">
-                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
-                            <p class="mb-0">reactprox@mail.com</p>
+                            <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0" onclick="showEmailPopup(event)" style="cursor: pointer;">eligfouts@gmail.com</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center wow fadeInLeft" data-wow-delay="0.8s">
-                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
-                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                            <a href="https://www.google.com/maps/place/University+of+Cincinnati,+Cincinnati,+OH/" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">University of Cincinnati, Cincinnati, OH</p>
                         </div>
                     </div>
                 </div>
@@ -807,7 +878,7 @@
                                 <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-delay="1.2s">
-                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-delay="1.4s">
                                 <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
@@ -820,7 +891,7 @@
         <!-- Copy Right Start -->
         <div class="container">
             <div class="d2c_copy_right_wrapper wow fadeInUp" data-wow-delay="0.5s">
-                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+                <p class="mb-0 text-center">Copyright &copy; 2025 Eli Fouts. All Rights Reserved.</p>
             </div>
         </div>
         <!-- Copy Right End -->
@@ -846,31 +917,103 @@
     <script src="./lib/bootstrap-5/js/bootstrap.bundle.min.js"></script>
     <!-- fancybox Image -->
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <!-- Slider JS Link -->
+    <!-- Slick Slider JS -->
     <script src="./lib/slick-1.8.1/slick/slick.min.js"></script>
     <!-- Starfield Effect -->
     <script src="./assets/js/starfield.js"></script>
     <!-- Main JS Link -->
     <script src="./assets/js/main.js"></script>
+    <!-- GitHub Config (optional - for authentication) -->
+    <script src="./config/github-config.js"></script>
     <!-- GitHub Repos JS -->
     <script src="./assets/js/github-repos.js"></script>
-    
-    <!-- GitHub Repository Cards JavaScript -->
+    <script src="./assets/js/email-popup.js"></script>    <!-- Project Slider JavaScript -->
     <script>
         $(document).ready(function() {
-            // Handle GitHub repository card clicks
-            $('.github-repo-card').on('click', function() {
-                const repoUrl = $(this).data('repo-url');
-                if (repoUrl) {
-                    window.open(repoUrl, '_blank');
+            // Initialize Project Slider
+            $('.project-slider').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                arrows: true,
+                // Allow each slide to use its intrinsic width and keep consistent gaps via CSS
+                variableWidth: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+
+            // Handle project card clicks
+            $('.project-card').on('click', function() {
+                const projectUrl = $(this).data('project-url');
+                if (projectUrl) {
+                    window.open(projectUrl, '_blank');
                 }
             });
-            
-            // Add hover effects for better UX
-            $('.github-repo-card').on('mouseenter', function() {
-                $(this).find('.repo-name').css('color', '#1d2021');
-            }).on('mouseleave', function() {
-                $(this).find('.repo-name').css('color', '#fbf1c7');
+
+            // Populate home page gallery with random photos from gallery folder
+            const galleryImages = [
+                './assets/images/Gallery/EliFouts_Addiciton_1.jpg',
+                './assets/images/Gallery/EliFouts_Bed_1.jpg',
+                './assets/images/Gallery/EliFouts_Card_1.jpg',
+                './assets/images/Gallery/EliFouts_Car_1.jpg',
+                './assets/images/Gallery/EliFouts_Cat_1.jpg',
+                './assets/images/Gallery/EliFouts_Depression_1.jpg',
+                './assets/images/Gallery/EliFouts_GoldenRule01.jpg',
+                './assets/images/Gallery/EliFouts_GoldenRule02.jpg',
+                './assets/images/Gallery/EliFouts_Leaf_1.jpg',
+                './assets/images/Gallery/EliFouts_Leaf_2.jpg',
+                './assets/images/Gallery/EliFouts_Leaves_1.jpg',
+                './assets/images/Gallery/EliFouts_Legos_1.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _1.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _10.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _3.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _4.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _5.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _6.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _7.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _8.jpg',
+                './assets/images/Gallery/EliFouts_Lighting _9.jpg',
+                './assets/images/Gallery/EliFouts_Lighting_2.jpg',
+                './assets/images/Gallery/EliFouts_Mouse_1.jpg',
+                './assets/images/Gallery/EliFouts_RuleOfThirds01.jpg',
+                './assets/images/Gallery/EliFouts_RuleOfThirds02.jpg',
+                './assets/images/Gallery/EliFouts_RuleOfThirds03.jpg'
+            ];
+
+            // Function to shuffle array and get random selection
+            function getRandomImages(arr, count) {
+                const shuffled = [...arr].sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            // Get 6 random images for home page gallery
+            const randomImages = getRandomImages(galleryImages, 6);
+
+            // Update gallery images on home page
+            $('.d2c_project_wrapper .d2c_img_wrapper img').each(function(index) {
+                if (randomImages[index]) {
+                    $(this).attr('src', randomImages[index]);
+                    $(this).attr('alt', 'Gallery Image ' + (index + 1));
+                }
             });
         });
     </script>
