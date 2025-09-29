@@ -934,16 +934,16 @@ h1 span {
     font-family: var(--primary_font);
     color: var(--secondary_color) !important;
     padding: 0px 20px;
-    background: #fb4934;
+    background: #edebf10a;
     border: 0;
 }
 .form-control:focus {
-    background: #fb4934;
+    background: #edebf10a;
     border: 0;
     box-shadow: none;
 }
 .form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
-    border-color: #fb4934;
+    border-color: #edebf10a;
     box-shadow: none;
 }
 .d2c_footer_newsletter .btn {
