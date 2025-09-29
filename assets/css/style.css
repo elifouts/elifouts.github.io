@@ -907,19 +907,19 @@ h1 span {
 .d2c_footer_wrapper .d2c_icon_wrapper {
     width: 30px;
     height: 30px;
-    background: #edebf10a;
+    background: var(--secondary_color);
     border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: var(--secondary_color);
+    color: #a89984;
     transition: 0.4s all ease;
     margin-right: 15px;
 }
 .d2c_footer_wrapper .d2c_icon_wrapper:hover {
-    background: var(--secondary_color);
-    color: var(--primary_color);
+    background: #458588;
+    color: var(--secondary_color);
     transition: 0.4s all ease;
 }
 .d2c_footer_newsletter {
