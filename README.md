@@ -1,14 +1,10 @@
 # Eli Fouts — Portfolio (elifouts.github.io)
 
+🎨 Live demo: https://elifouts.github.io
+
 > A fast, dark-mode personal portfolio website with retro/gruvbox styling, smooth animations, and a small collection of interactive widgets.
 
 ![Hero preview](assets/images/hero_img.jpg)
-
----
-
-🎨 Live demo: https://elifouts.github.io
-
----
 
 ## About
 
@@ -33,4 +29,3 @@ The visual theme leans on a Gruvbox-inspired palette, monospace fonts (JetBrains
 - Slick Slider — project / carousel UI
 - Fancybox — image lightbox for gallery
 - Font Awesome — social & utility icons
-
