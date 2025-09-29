@@ -101,6 +101,155 @@
             padding-left: 10px !important;
             padding-right: 10px !important;
         }
+
+        /* Links Page Styles */
+        .links-wrapper {
+            background: var(--section_bg);
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #3c3836 0%, #504945 100%);
+            border: 2px solid var(--secondary_color);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent_color);
+            background: linear-gradient(45deg, #83a598, #458588, #689d6a, #b16286);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            color: #1d2021;
+            z-index: 10;
+        }
+
+        .link-card .link-icon {
+            font-size: 48px;
+            color: var(--accent_color);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-icon {
+            color: var(--accent_color);
+            transform: scale(1.1);
+        }
+
+        .link-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .link-card p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .link-card .link-url {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            opacity: 0.6;
+            word-break: break-all;
+        }
+
+        .link-card:hover .link-url {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            background: rgba(60, 56, 54, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--secondary_color);
+            color: var(--text_color);
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            margin: 0 10px 10px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--accent_color);
+            color: #1d2021;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-link:hover { background: #333; color: white; }
+        .linkedin-link:hover { background: #0077b5; color: white; }
+        .twitter-link:hover { background: #1da1f2; color: white; }
+        .email-link:hover { background: #ea4335; color: white; }
+        .portfolio-link:hover { background: var(--accent_color); color: #1d2021; }
+
+        /* Gradient animation for cards */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .link-card {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+            
+            .link-card .link-icon {
+                font-size: 36px;
+            }
+            
+            .link-card h4 {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -171,175 +320,116 @@
     </header>
     <!-- Header End -->
 
-    <!-- Blog Section Start -->
-    <section class="d2c_blog_wrapper d2c_blog_page text-center">
+    <!-- Links Section Start -->
+    <section class="links-wrapper text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">
-                    <h2>Articles & News</h2>
-                    <p>It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using.</p>
+                    <h2 class="wow fadeInDown" data-wow-delay="0.1s">My Links & Resources</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Connect with me across various platforms and explore my work, projects, and professional presence.</p>
                 </div>
             </div>
+            
+            <div class="row justify-content-center">
+                <!-- GitHub Profile -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="https://github.com/elifouts" target="_blank" class="link-card">
+                        <div class="link-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h4>GitHub Profile</h4>
+                        <p>Explore my repositories, open source contributions, and code projects. See what I'm currently working on and my development journey.</p>
+                        <div class="link-url">github.com/elifouts</div>
+                    </a>
+                </div>
+
+                <!-- LinkedIn Profile -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="link-card">
+                        <div class="link-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h4>LinkedIn Profile</h4>
+                        <p>Connect with me professionally, view my career timeline, endorsements, and professional network.</p>
+                        <div class="link-url">linkedin.com/in/elifouts</div>
+                    </a>
+                </div>
+
+                <!-- Resume/CV -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <a href="assets/resume/Eli_Fouts_Resume.pdf" target="_blank" class="link-card">
+                        <div class="link-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4>Resume / CV</h4>
+                        <p>Download my latest resume to learn about my experience, skills, education, and professional achievements.</p>
+                        <div class="link-url">Download PDF Resume</div>
+                    </a>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <a href="../index.html" class="link-card">
+                        <div class="link-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Portfolio Website</h4>
+                        <p>Explore my complete portfolio showcasing projects, skills, and everything about my professional journey.</p>
+                        <div class="link-url">My Portfolio Home</div>
+                    </a>
+                </div>
+
+                <!-- Email Contact -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.7s">
+                    <a href="#" onclick="showEmailPopup(event)" class="link-card">
+                        <div class="link-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Me</h4>
+                        <p>Get in touch directly via email for collaboration opportunities, questions, or professional inquiries.</p>
+                        <div class="link-url">eligfouts@gmail.com</div>
+                    </a>
+                </div>
+
+                <!-- Blog/Articles -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                    <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="link-card">
+                        <div class="link-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h4>Instagram</h4>
+                        <p>Follow my photography journey, hiking adventures, and glimpses into my life outside of coding.</p>
+                        <div class="link-url">instagram.com/eli_fouts73</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Social Links Section -->
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_one.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Let's Get Solution For Building Construction Work</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_two.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Quick Tips for Time-Strapped Individuals solutions</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_three.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">DataAI - Free Tailwind App Landing Page Template</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_one.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Let's Get Solution For Building Construction Work</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_two.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Quick Tips for Time-Strapped Individuals solutions</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_three.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">DataAI - Free Tailwind App Landing Page Template</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_one.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Let's Get Solution For Building Construction Work</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_two.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">Quick Tips for Time-Strapped Individuals solutions</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 blog">
-                    <div class="d2c_card">
-                        <div class="d2c_img_wrapper">
-                            <img src="../assets/images/blog_img_three.jpg" class="w-100 h-100" alt="Blog Image">
-                        </div>
-                        <div class="row d2c_blog_title_wrapper align-items-center">
-                            <div class="col-9 col-xl-10">
-                                <a href="#"><p class="mb-0">DataAI - Free Tailwind App Landing Page Template</p></a>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="d2c_icon_wrapper">
-                                    <i class="fas fa-angle-right"></i>
-                                </div>
-                            </div>
+                <div class="col-12 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="social-links text-center">
+                        <h4 style="margin-bottom: 20px; font-family: 'Orbitron', sans-serif;">Quick Connect</h4>
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <a href="https://github.com/elifouts" target="_blank" class="social-link github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="social-link linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="social-link twitter-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" onclick="showEmailPopup()" class="social-link email-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="../index.html" class="social-link portfolio-link">
+                                <i class="fas fa-home"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="d2c_blog_btn">
-                <a href="#" id="d2c_blog_more" class="btn mx-auto">
-                    load more
-                </a>
-            </div>
+
         </div>
     </section>
     <!-- Blog Section End -->
@@ -350,46 +440,41 @@
             <div class="row">
                 <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
                     <a href="../index.html"><span class="ef-logo">EF</span></a>
-                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                    <p class="mb-0">Computer Science student at UC, currently co-oping as a PLM Application Engineer at Saratech. Passionate about coding, hiking, and photography.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_contact_details">
                         <h5>Contact Details</h5>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
-                            <p class="mb-0">+88 219 555-0114</p>
+                            <a href="tel:5139078569" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">(513) 907-8569</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
-                            <p class="mb-0">reactprox@mail.com</p>
+                            <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0" onclick="showEmailPopup(event)" style="cursor: pointer;">eligfouts@gmail.com</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center">
-                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
-                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                            <a href="https://www.google.com/maps/place/University+of+Cincinnati,+Cincinnati,+OH/" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">University of Cincinnati, Cincinnati, OH</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInRight">
                     <div class="d2c_footer_newsletter">
-                        <h5>Newsletter</h5>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group h-100">
-                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
-                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
+                        <h5>Connect With Me</h5>
+                        <p class="mb-3">Follow my journey and connect with me on social media!</p>
                         <ul class="list-group list-group-horizontal">
                             <li>
-                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/elifouts" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                                <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -399,7 +484,7 @@
         <!-- Copy Right Start -->
         <div class="container">
             <div class="d2c_copy_right_wrapper">
-                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+                <p class="mb-0 text-center">Copyright &copy; 2025 Eli Fouts. All Rights Reserved.</p>
             </div>
         </div>
         <!-- Copy Right End -->
@@ -432,6 +517,7 @@
     <!-- Main JS Link -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/starfield.js"></script>
+    <script src="../assets/js/email-popup.js"></script>
 </body>
 </html>
 

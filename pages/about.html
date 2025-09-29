@@ -187,10 +187,10 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-start wow fadeInRight">
                     <h2>Get to Know Me</h2>
-                    <p class="mb-2">Curious about the person behind ReactProx? Dive into my story, skills, and the journey that led me to the world of best for the React development. Let's connect on a personal level.</p>
-                    <p class="d2c_about_content">I've been part of the team that has built the front-end for an enterprise level web application in AngularJS. I've been a part of a team that has built a social network from scratch in Meteor.</p>
-                    <h5>How can i help you</h5>
-                    <p>I've diverse background in technology, which mean I'm always learning new skills. I've worked with a wide range of technologies, including MS SQL Server and Python. One of my favorite characteristics of an employer is their passion for the work they are doing.</p>
+                    <p class="mb-2">Hello! I'm Eli Fouts, currently studying Computer Science at the University of Cincinnati and co-oping at Saratech as a PLM Application Engineer. I'm passionate about computers, coding, hiking, and photography. Welcome to my website where you can explore my projects, view my resume, and get to know me better!</p>
+                    <p class="d2c_about_content">I'm deeply interested in hiking and photography, which help me maintain a creative perspective and problem-solving mindset. I believe the best solutions come from balancing technical expertise with creative thinking. My journey combines academic learning with real-world application in enterprise software solutions.</p>
+                    <h5>My Technical Journey</h5>
+                    <p>I have experience with diverse technologies including Shell scripting, CSS, Lua, TypeScript, and GLSL. My co-op experience at Saratech has given me valuable insights into PLM systems and enterprise application development. I'm always eager to learn new technologies and take on challenging projects.</p>
                     <a href="contact.html" class="btn mt-3">Hire Me</a>
                 </div>
             </div>
@@ -198,173 +198,207 @@
     </section>
     <!-- About Section End -->
 
-    <!-- About Skill Section Start -->
-    <section class="skills-section">
+    <!-- Tech Dashboard Section Start -->
+    <section class="tech-dashboard-section">
+        <div class="starfield-bg"></div>
         <div class="container">
-            <h2 class="text-center">Technical Expertise</h2>
+            <div class="dashboard-header text-center mb-5">
+                <h2 class="dashboard-title">Technical Arsenal</h2>
+                <p class="dashboard-subtitle">My toolkit for building amazing software solutions</p>
+            </div>
             
-            <!-- Frontend Development -->
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                <div class="skill-grid">
-                    <div class="skill-card frontend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fab fa-react"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>React.js</h4>
-                                <div class="skill-level">Advanced</div>
-                            </div>
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="dashboard-column left">
+                    <!-- Programming Languages -->
+                    <div class="dashboard-card languages-card wow fadeInUp" data-wow-delay="0.1s" data-category="languages">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 90%"></div>
-                        </div>
-                        <div class="skill-details">Redux, Hooks, Context API</div>
-                        <span class="experience-badge">4 years</span>
+                        <h3>Programming Languages</h3>
                     </div>
-
-                    <div class="skill-card frontend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fab fa-js"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>JavaScript</h4>
-                                <div class="skill-level">Expert</div>
-                            </div>
+                    <div class="tech-grid" id="languages-grid">
+                        <div class="tech-item" data-skill="python" data-level="high" data-icon="fab fa-python">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                            <div class="proficiency-dot high"></div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 95%"></div>
+                        <div class="tech-item" data-skill="javascript" data-level="high" data-icon="fab fa-js-square">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                            <div class="proficiency-dot high"></div>
                         </div>
-                        <div class="skill-details">ES6+, TypeScript, Node.js</div>
-                        <span class="experience-badge">5+ years</span>
+                        <div class="tech-item" data-skill="java" data-level="high" data-icon="fab fa-java">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item" data-skill="cpp" data-level="medium" data-icon="fas fa-code">
+                            <i class="fas fa-code"></i>
+                            <span>C++</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item" data-skill="rust" data-level="medium" data-icon="fab fa-rust">
+                            <i class="fab fa-rust"></i>
+                            <span>Rust</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item" data-skill="sql" data-level="high" data-icon="fas fa-database">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item" data-skill="typescript" data-level="medium" data-icon="fas fa-code">
+                            <i class="fas fa-code"></i>
+                            <span>TypeScript</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item" data-skill="shell" data-level="high" data-icon="fas fa-terminal">
+                            <i class="fas fa-terminal"></i>
+                            <span>Shell/Bash</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item" data-skill="lua" data-level="medium" data-icon="fas fa-code">
+                            <i class="fas fa-code"></i>
+                            <span>Lua</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item" data-skill="glsl" data-level="low" data-icon="fas fa-cube">
+                            <i class="fas fa-cube"></i>
+                            <span>GLSL</span>
+                            <div class="proficiency-dot low"></div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Backend Development -->
-            <div class="skill-category">
-                <h3><i class="fas fa-server"></i> Backend Development</h3>
-                <div class="skill-grid">
-                    <div class="skill-card backend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>Python</h4>
-                                <div class="skill-level">Intermediate</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 75%"></div>
-                        </div>
-                        <div class="skill-details">Django, Flask, FastAPI</div>
-                        <span class="experience-badge">2 years</span>
-                    </div>
-
-                    <div class="skill-card backend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fab fa-node-js"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>Node.js</h4>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 85%"></div>
-                        </div>
-                        <div class="skill-details">Express, NestJS, GraphQL</div>
-                        <span class="experience-badge">3 years</span>
+                    <div class="card-progress-bar">
+                        <div class="progress-fill" data-width="60"></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Design & CSS Frameworks -->
-            <div class="skill-category">
-                <h3><i class="fas fa-paint-brush"></i> Design & CSS Frameworks</h3>
-                <div class="skill-grid">
-                    <div class="skill-card frontend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fab fa-sketch"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>Sketch</h4>
-                                <div class="skill-level">Intermediate</div>
-                            </div>
+                <!-- Tools & Platforms -->
+                <div class="dashboard-card tools-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 50%"></div>
-                        </div>
-                        <div class="skill-details">UI Design, Prototyping</div>
-                        <span class="experience-badge">1 year</span>
+                        <h3>Tools & Platforms</h3>
                     </div>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>VS Code</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                            <div class="proficiency-dot low"></div>
+                        </div>
+                    </div>
+                    <div class="card-progress-bar">
+                        <div class="progress-fill" data-width="54"></div>
+                    </div>
+                </div>
+                </div>
 
-                    <div class="skill-card frontend-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
+                <!-- Right Column -->
+                <div class="dashboard-column right">
+                    <!-- Web Technologies -->
+                    <div class="dashboard-card web-card wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Web Technologies</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                                <div class="proficiency-dot high"></div>
+                            </div>
+                            <div class="tech-item">
                                 <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                                <div class="proficiency-dot high"></div>
                             </div>
-                            <div class="skill-info">
-                                <h4>Tailwind CSS</h4>
-                                <div class="skill-level">Intermediate</div>
+                            <div class="tech-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                                <div class="proficiency-dot medium"></div>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                                <div class="proficiency-dot medium"></div>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-bootstrap"></i>
+                                <span>Bootstrap</span>
+                                <div class="proficiency-dot high"></div>
                             </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 60%"></div>
+                        <div class="card-progress-bar">
+                            <div class="progress-fill" data-width="50"></div>
                         </div>
-                        <div class="skill-details">Responsive Design, Components</div>
-                        <span class="experience-badge">1.5 years</span>
+                    </div>
+
+                    <!-- Enterprise & PLM -->
+                <div class="dashboard-card enterprise-card wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Enterprise & PLM</h3>
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>PLM Systems</span>
+                            <div class="proficiency-dot high"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>Enterprise Apps</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>System Integration</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data Analysis</span>
+                            <div class="proficiency-dot medium"></div>
+                        </div>
+                    </div>
+                    <div class="card-progress-bar">
+                        <div class="progress-fill" data-width="36"></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Database & Tools -->
-            <div class="skill-category">
-                <h3><i class="fas fa-database"></i> Database & Tools</h3>
-                <div class="skill-grid">
-                    <div class="skill-card database-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>Databases</h4>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 85%"></div>
-                        </div>
-                        <div class="skill-details">MongoDB, PostgreSQL, Redis</div>
-                        <span class="experience-badge">4 years</span>
-                    </div>
-
-                    <div class="skill-card tools-card">
-                        <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="skill-info">
-                                <h4>DevOps Tools</h4>
-                                <div class="skill-level">Intermediate</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--skill-level: 70%"></div>
-                        </div>
-                        <div class="skill-details">Git, Docker, AWS, CI/CD</div>
-                        <span class="experience-badge">2 years</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- About Skill Section End -->
+    <!-- Tech Dashboard Section End -->
 
     <!-- Call To Action Section Start -->
     <section class="d2c_c2a_wrapper text-center wow fadeInUp" style="padding: 80px 0;">
@@ -384,46 +418,37 @@
             <div class="row">
                 <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
                     <a href="../index.html"><span class="ef-logo">EF</span></a>
-                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                    <p class="mb-0">Computer Science student at UC, currently co-oping as a PLM Application Engineer at Saratech. Passionate about coding, hiking, and photography.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_contact_details">
                         <h5>Contact Details</h5>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
-                            <p class="mb-0">+88 219 555-0114</p>
+                            <a href="tel:5139078569" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">(513) 907-8569</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
-                            <p class="mb-0">reactprox@mail.com</p>
+                            <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0" onclick="showEmailPopup(event)" style="cursor: pointer;">eligfouts@gmail.com</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center">
-                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
-                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                            <a href="https://www.google.com/maps/search/Cincinnati,+OH" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">Cincinnati, OH</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInRight">
                     <div class="d2c_footer_newsletter">
-                        <h5>Newsletter</h5>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group h-100">
-                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
-                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
+                        <h5>Connect With Me</h5>
                         <ul class="list-group list-group-horizontal">
                             <li>
-                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/elifouts" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -433,7 +458,7 @@
         <!-- Copy Right Start -->
         <div class="container">
             <div class="d2c_copy_right_wrapper">
-                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+                <p class="mb-0 text-center">Copyright &copy; 2025 Eli Fouts. All Rights Reserved.</p>
             </div>
         </div>
         <!-- Copy Right End -->
@@ -466,6 +491,7 @@
     <!-- Main JS Link -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/starfield.js"></script>
+    <script src="../assets/js/email-popup.js"></script>
 
     <!-- JS Start -->
     <script>
@@ -492,6 +518,313 @@
         });
         detect_visibility();
     </script>
+
+    <!-- Starfield Sparkle Effect -->
+    <script>
+        // Add sparkle effect to stars
+        function addSparkleEffect() {
+            setInterval(() => {
+                const randomStar = Math.random();
+                if (randomStar > 0.95) {
+                    // Add temporary sparkle
+                    const sparkle = document.createElement('div');
+                    sparkle.style.cssText = `
+                        position: absolute;
+                        width: 4px; height: 4px;
+                        background: var(--accent_color);
+                        border-radius: 50%;
+                        top: ${Math.random() * 100}%;
+                        left: ${Math.random() * 100}%;
+                        animation: sparkle 0.8s ease-out forwards;
+                        z-index: 1;
+                    `;
+                    document.querySelector('.starfield-bg').appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 800);
+                }
+            }, 2000);
+        }
+
+        // Initialize sparkle effect
+        document.addEventListener('DOMContentLoaded', addSparkleEffect);
+
+        // Animate progress bars when dashboard comes into view
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.getAttribute('data-width');
+                        
+                        // Random delay for staggered animation
+                        const randomDelay = Math.random() * 1000 + 500;
+                        
+                        setTimeout(() => {
+                            progressBar.style.width = width + '%';
+                        }, randomDelay);
+                        
+                        observer.unobserve(progressBar);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            progressBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Initialize progress bar animation
+        document.addEventListener('DOMContentLoaded', animateProgressBars);
+
+        // Randomly change progress bars while maintaining 200% total
+        function randomizeProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            setInterval(() => {
+                // Generate 4 random numbers that sum to 200
+                let values = [];
+                let remaining = 200;
+                
+                // Generate first 3 random values
+                for (let i = 0; i < 3; i++) {
+                    const min = Math.max(20, remaining - (3 - i) * 80); // Ensure minimum 20%
+                    const max = Math.min(80, remaining - (3 - i) * 20); // Ensure maximum 80%
+                    const value = Math.floor(Math.random() * (max - min + 1)) + min;
+                    values.push(value);
+                    remaining -= value;
+                }
+                
+                // Last value gets the remainder
+                values.push(remaining);
+                
+                // Shuffle the array to randomize which card gets which value
+                for (let i = values.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [values[i], values[j]] = [values[j], values[i]];
+                }
+                
+                // Apply the new values with smooth animation
+                progressBars.forEach((bar, index) => {
+                    bar.style.width = values[index] + '%';
+                    bar.setAttribute('data-width', values[index]);
+                });
+                
+            }, 3000); // Change every 3 seconds
+        }
+
+        // Start random progress bar changes after initial animation
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(randomizeProgressBars, 4000); // Start after 4 seconds
+        });
+
+        // GitHub Repository Management System
+        const GITHUB_REPOS = [
+            'https://github.com/elifouts/Dotfiles',
+            'https://github.com/elifouts/MyFetch',
+            'https://github.com/elifouts/ManageMe',
+            'https://github.com/elifouts/wallpapers',
+            'https://github.com/elifouts/EfoutsCode',
+            'https://github.com/elifouts/Poli-Search'
+        ];
+
+        // Fetch GitHub repo data
+        async function fetchGitHubRepo(repoUrl) {
+            try {
+                const urlParts = repoUrl.replace('https://github.com/', '').split('/');
+                const owner = urlParts[0];
+                const repo = urlParts[1];
+                const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+                
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Repo not found');
+                
+                const data = await response.json();
+                
+                // Get language data
+                const languagesResponse = await fetch(`${apiUrl}/languages`);
+                const languages = await languagesResponse.json();
+                const primaryLanguage = Object.keys(languages)[0] || 'Unknown';
+                
+                return {
+                    name: data.name,
+                    description: data.description || 'No description available',
+                    stars: data.stargazers_count,
+                    forks: data.forks_count,
+                    language: primaryLanguage,
+                    url: data.html_url,
+                    topics: data.topics || []
+                };
+            } catch (error) {
+                console.warn(`Failed to fetch repo data for ${repoUrl}:`, error);
+                return null;
+            }
+        }
+
+        // Create project card HTML
+        function createProjectCard(repoData, delay = 0) {
+            const languageIcon = getLanguageIcon(repoData.language);
+            const languageColor = getLanguageColor(repoData.language);
+            
+            return `
+                <div class="project-card-wrapper wow fadeInUp" data-wow-delay="${delay}s">
+                    <div class="github-repo-card" data-repo-url="${repoData.url}">
+                        <div class="repo-header">
+                            <div class="repo-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="repo-title-section">
+                                <h5 class="repo-name">${repoData.name}</h5>
+                                <p class="repo-subtitle">${repoData.topics[0] || 'Personal Project'}</p>
+                            </div>
+                        </div>
+                        <div class="repo-description-section">
+                            <p class="repo-description">${repoData.description}</p>
+                        </div>
+                        <div class="repo-stats-bottom">
+                            <div class="stat-item language-stat">
+                                <div class="language-dot ${repoData.language.toLowerCase()}" style="background-color: ${languageColor}"></div>
+                                <span class="language-name">${repoData.language}</span>
+                            </div>
+                            <div class="stat-item star-stat">
+                                <i class="fas fa-star"></i>
+                                <span>${repoData.stars}</span>
+                            </div>
+                            <div class="stat-item fork-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>${repoData.forks}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Get language icon
+        function getLanguageIcon(language) {
+            const icons = {
+                'JavaScript': 'fab fa-js-square',
+                'TypeScript': 'fab fa-js-square',
+                'Python': 'fab fa-python',
+                'Shell': 'fas fa-terminal',
+                'CSS': 'fab fa-css3-alt',
+                'HTML': 'fab fa-html5',
+                'Java': 'fab fa-java',
+                'C++': 'fas fa-code',
+                'Rust': 'fab fa-rust',
+                'Lua': 'fas fa-code',
+                'GLSL': 'fas fa-cube'
+            };
+            return icons[language] || 'fas fa-code';
+        }
+
+        // Get language color
+        function getLanguageColor(language) {
+            const colors = {
+                'JavaScript': '#f1e05a',
+                'TypeScript': '#2b7489',
+                'Python': '#3572A5',
+                'Shell': '#89e051',
+                'CSS': '#563d7c',
+                'HTML': '#e34c26',
+                'Java': '#b07219',
+                'C++': '#f34b7d',
+                'Rust': '#dea584',
+                'Lua': '#000080',
+                'GLSL': '#5686a5'
+            };
+            return colors[language] || '#666666';
+        }
+
+        // Load and display GitHub projects
+        async function loadGitHubProjects() {
+            const projectsGrid = document.getElementById('projects-grid');
+            if (!projectsGrid) return;
+
+            projectsGrid.innerHTML = '<div class="loading-spinner">Loading projects...</div>';
+
+            const repoPromises = GITHUB_REPOS.map(fetchGitHubRepo);
+            const repos = await Promise.all(repoPromises);
+            
+            // Filter out failed requests
+            const validRepos = repos.filter(repo => repo !== null);
+            
+            if (validRepos.length === 0) {
+                projectsGrid.innerHTML = '<p>No valid repositories found.</p>';
+                return;
+            }
+
+            // Generate cards
+            const cardsHTML = validRepos.map((repo, index) => 
+                createProjectCard(repo, 0.3 + (index * 0.1))
+            ).join('');
+
+            projectsGrid.innerHTML = cardsHTML;
+
+            // Reinitialize WOW for new elements
+            if (typeof WOW !== 'undefined') {
+                new WOW().init();
+            }
+
+            // Add click handlers
+            addProjectClickHandlers();
+        }
+
+        // Add click handlers to project cards
+        function addProjectClickHandlers() {
+            document.querySelectorAll('.github-repo-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const repoUrl = this.getAttribute('data-repo-url');
+                    if (repoUrl) {
+                        window.open(repoUrl, '_blank');
+                    }
+                });
+            });
+        }
+
+        // Initialize GitHub projects when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(loadGitHubProjects, 1000); // Load after page settles
+        });
+
+        // Function to add new repo (for easy updates)
+        window.addGitHubRepo = function(repoUrl) {
+            if (!GITHUB_REPOS.includes(repoUrl)) {
+                GITHUB_REPOS.push(repoUrl);
+                loadGitHubProjects();
+                console.log(`✅ Added repo: ${repoUrl}`);
+            } else {
+                console.log(`⚠️ Repo already exists: ${repoUrl}`);
+            }
+        };
+
+        // Function to remove repo
+        window.removeGitHubRepo = function(repoUrl) {
+            const index = GITHUB_REPOS.indexOf(repoUrl);
+            if (index > -1) {
+                GITHUB_REPOS.splice(index, 1);
+                loadGitHubProjects();
+                console.log(`❌ Removed repo: ${repoUrl}`);
+            } else {
+                console.log(`⚠️ Repo not found: ${repoUrl}`);
+            }
+        };
+    </script>
+
+    <style>
+    @keyframes sparkle {
+        0% { transform: scale(0) rotate(0deg); opacity: 1; }
+        50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+        100% { transform: scale(0) rotate(360deg); opacity: 0; }
+    }
+    
+    code {
+        color: var(--accent_color);
+        background: rgba(70, 120, 130, 0.2);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+    }
+    </style>
+    
     <!-- JS End -->
 </body>
 </html>

@@ -102,21 +102,35 @@
             padding-right: 10px !important;
         }
         
-        /* Fix Gallery Top Spacing */
+        /* Fix Gallery Top Spacing and Allow Shadows */
         .d2c_project_wrapper.d2c_project_page {
             padding-top: 40px !important;
             margin-top: 0 !important;
+            background: transparent !important;
+            position: relative;
+            z-index: 1;
+            overflow: visible !important;
         }
         
-        /* Clean Gallery Grid */
+        /* Ensure container doesn't block shadows */
+        .d2c_project_wrapper .container {
+            background: transparent !important;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Full Width Gallery Grid */
         .masonry-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin: 0;
-            padding: 20px 0;
+            margin: 0 auto;
+            padding: 20px 50px;
             transition: all 6s cubic-bezier(0.23, 1, 0.32, 1);
             overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
         }
         
 
@@ -125,6 +139,7 @@
             .masonry-gallery {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+                padding: 20px 40px;
             }
         }
         
@@ -132,6 +147,7 @@
             .masonry-gallery {
                 grid-template-columns: 1fr;
                 gap: 15px;
+                padding: 20px 30px;
             }
         }
         
@@ -141,10 +157,14 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: #fff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            /* Clean floating shadow */
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 4px 16px rgba(0, 0, 0, 0.3);
+            padding: 0;
             opacity: 1;
             transform: scale(1);
         }
@@ -165,9 +185,12 @@
         }
         
         .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-radius: 16px;
+            transform: translateY(-12px) scale(1.03);
+            /* Clean enhanced floating shadow */
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 8px 30px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
         }
         
         .gallery-item:hover img {
@@ -179,9 +202,10 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 8px;
             display: block;
-            transition: all 0.3s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
         }
         
         /* Enhanced Lightbox Styles with More Transparency and Blur */
@@ -431,12 +455,14 @@
     <!-- Header End -->
 
     <!-- Project Section Start -->
-    <section class="d2c_project_wrapper d2c_project_page text-center">
+    <section class="d2c_project_wrapper d2c_project_page text-center" style="background: transparent; position: relative; z-index: 1;">
+        <div class="container" style="background: transparent;">
+            <h2>Gallery</h2>
+            <p>"It's quite simple, really." - Mumbo Jumbo</p>
+        </div>
+        <!-- Full Width Gallery Container -->
+        <div class="masonry-gallery" id="gallery-container"></div>
         <div class="container">
-            <h2>recent Projects</h2>
-            <p>I've diverse background in technology, which mean I'm always learning new skills.</p>
-            <!-- Masonry Gallery Container -->
-            <div class="masonry-gallery" id="gallery-container"></div>
             <div class="d2c_project_btn">
                 <button id="see-more-btn" class="btn">
                     More
@@ -470,46 +496,37 @@
             <div class="row">
                 <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
                     <a href="../index.html"><span class="ef-logo">EF</span></a>
-                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                    <p class="mb-0">Computer Science student at UC, currently co-oping as a PLM Application Engineer at Saratech. Passionate about coding, hiking, and photography.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_contact_details">
                         <h5>Contact Details</h5>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
-                            <p class="mb-0">+88 219 555-0114</p>
+                            <a href="tel:5139078569" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">(513) 907-8569</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
-                            <p class="mb-0">reactprox@mail.com</p>
+                            <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0" onclick="showEmailPopup(event)" style="cursor: pointer;">eligfouts@gmail.com</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center">
-                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
-                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                            <a href="https://www.google.com/maps/search/Cincinnati,+OH" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">Cincinnati, OH</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInRight">
                     <div class="d2c_footer_newsletter">
-                        <h5>Newsletter</h5>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group h-100">
-                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
-                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
+                        <h5>Connect With Me</h5>
                         <ul class="list-group list-group-horizontal">
                             <li>
-                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/elifouts" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -519,7 +536,7 @@
         <!-- Copy Right Start -->
         <div class="container">
             <div class="d2c_copy_right_wrapper">
-                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+                <p class="mb-0 text-center">Copyright &copy; 2025 Eli Fouts. All Rights Reserved.</p>
             </div>
         </div>
         <!-- Copy Right End -->
@@ -554,84 +571,73 @@
     <!-- Main JS Link -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/starfield.js"></script>
+    <script src="../assets/js/email-popup.js"></script>
     
     <!-- Dynamic Masonry Gallery Script -->
     <script>
         $(document).ready(function() {
             // Gallery images - ADD NEW IMAGES HERE EASILY! Just add one line like: 'path/to/image.jpg',
             const galleryImages = [
-                '../assets/images/project_img_one.jpg',
-                '../assets/images/project_img_two.jpg',
-                '../assets/images/project_img_three.jpg',
-                '../assets/images/project_img_four.jpg',
-                '../assets/images/project_img_five.jpg',
-                '../assets/images/project_img_six.jpg',
-                '../assets/images/project_img_one.jpg',
-                '../assets/images/project_img_two.jpg',
-                '../assets/images/project_img_three.jpg',
-                '../assets/images/project_img_four.jpg',
-                '../assets/images/project_img_five.jpg',
-                '../assets/images/project_img_six.jpg',
-                '../assets/images/project_img_one.jpg',
-                '../assets/images/project_img_two.jpg',
-                '../assets/images/project_img_three.jpg',
-                '../assets/images/project_img_four.jpg',
-                '../assets/images/project_img_five.jpg',
-                '../assets/images/project_img_six.jpg',
-                '../assets/images/project_img_one.jpg',
-                '../assets/images/project_img_two.jpg',
-                '../assets/images/project_img_three.jpg',
-                '../assets/images/project_img_four.jpg',
-                '../assets/images/project_img_five.jpg',
-                '../assets/images/project_img_six.jpg'
+                '../assets/images/Gallery/EliFouts_Addiciton_1.jpg',
+                '../assets/images/Gallery/EliFouts_Bed_1.jpg',
+                '../assets/images/Gallery/EliFouts_Card_1.jpg',
+                '../assets/images/Gallery/EliFouts_Car_1.jpg',
+                '../assets/images/Gallery/EliFouts_Cat_1.jpg',
+                '../assets/images/Gallery/EliFouts_Depression_1.jpg',
+                '../assets/images/Gallery/EliFouts_GoldenRule01.jpg',
+                '../assets/images/Gallery/EliFouts_GoldenRule02.jpg',
+                '../assets/images/Gallery/EliFouts_Leaf_1.jpg',
+                '../assets/images/Gallery/EliFouts_Leaf_2.jpg',
+                '../assets/images/Gallery/EliFouts_Leaves_1.jpg',
+                '../assets/images/Gallery/EliFouts_Legos_1.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _1.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _10.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _3.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _4.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _5.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _6.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _7.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _8.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting _9.jpg',
+                '../assets/images/Gallery/EliFouts_Lighting_2.jpg',
+                '../assets/images/Gallery/EliFouts_Mouse_1.jpg',
+                '../assets/images/Gallery/EliFouts_RuleOfThirds01.jpg',
+                '../assets/images/Gallery/EliFouts_RuleOfThirds02.jpg',
+                '../assets/images/Gallery/EliFouts_RuleOfThirds03.jpg'
             ];
             
-            let itemsShown = 6; // Initially show 6 items
-            const itemsPerLoad = 12; // Load 12 more items each time
-            
-            // Create simple gallery item
+            // Create gallery item with WOW animation
             function createGalleryItem(imageSrc, index) {
+                const wowDelay = (0.1 + index * 0.05).toFixed(2); // Staggered WOW delays
                 return `
-                    <div class="gallery-item" data-index="${index}">
-                        <img src="${imageSrc}" alt="Project ${index + 1}">
+                    <div class="gallery-item wow fadeInUp" data-wow-delay="${wowDelay}s" data-wow-duration="0.8s" data-index="${index}">
+                        <img src="${imageSrc}" alt="Gallery Image ${index + 1}" loading="lazy">
                     </div>
                 `;
             }
             
-            // Load initial images
-            function loadInitialImages() {
+            // Load ALL images at once with WOW animations
+            function loadAllImages() {
                 const container = $('#gallery-container');
-                for (let i = 0; i < Math.min(itemsShown, galleryImages.length); i++) {
-                    container.append(createGalleryItem(galleryImages[i], i));
-                }
+                
+                // Create all gallery items
+                galleryImages.forEach((imageSrc, index) => {
+                    container.append(createGalleryItem(imageSrc, index));
+                });
+                
+                // Setup lightbox for all items
                 setupLightbox();
-            }
-            
-            // Load more images with smooth expand animation
-            function loadMoreImages() {
-                const container = $('#gallery-container');
-                const endIndex = Math.min(itemsShown + itemsPerLoad, galleryImages.length);
                 
-                let delay = 0;
-                for (let i = itemsShown; i < endIndex; i++) {
-                    setTimeout(() => {
-                        const newItem = $(createGalleryItem(galleryImages[i], i));
-                        newItem.addClass('expanding');
-                        container.append(newItem);
-                        
-                        // Setup lightbox for this new item immediately
-                        setupLightboxForItem(newItem);
-                        
-                        // Remove animation class after animation completes
-                        setTimeout(() => {
-                            newItem.removeClass('expanding');
-                        }, 600);
-                    }, delay);
-                    delay += 50; // Stagger slightly for smooth wave effect
+                // Initialize WOW animations
+                if (typeof WOW !== 'undefined') {
+                    new WOW({
+                        boxClass: 'wow',
+                        animateClass: 'animated',
+                        offset: 0,
+                        mobile: false,
+                        live: true
+                    }).init();
                 }
-                
-                itemsShown = endIndex;
-                updateButtons();
             }
             
             // Setup lightbox for a specific item
@@ -698,28 +704,11 @@
                 }
             });
             
-            // Simple button functionality
-            function updateButtons() {
-                const remaining = galleryImages.length - itemsShown;
-                
-                if (remaining > 0) {
-                    $('#see-more-btn').text('More').show();
-                } else {
-                    $('#see-more-btn').hide();
-                }
-            }
+            // Hide the "More" button since we're showing all images
+            $('#see-more-btn').hide();
             
-            // Simple button click
-            $('#see-more-btn').click(function(e) {
-                e.preventDefault();
-                loadMoreImages();
-            });
-            
-
-            
-            // Initialize gallery
-            loadInitialImages();
-            updateButtons();
+            // Initialize gallery - load all images with WOW animations
+            loadAllImages();
         });
     </script>
 </body>

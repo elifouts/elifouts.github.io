@@ -127,17 +127,44 @@ window.addEventListener('load', function() {
     var preloader = document.querySelector('.preloader');
     preloader.classList.add('hide');
 });
-// WOW JS
-  wow = new WOW(
-    {
-    boxClass:     'wow',
-    animateClass: 'animated',
-    offset:       0,
-    mobile:       false,
-    live:         true
+// WOW JS - staggered card animations for smooth sequential reveal
+function initStaggeredWOW() {
+  // Choose base delay and step (seconds) for stagger
+  var baseDelay = 0.12; // first card delay in seconds
+  var stepDelay = 0.08; // incremental delay per card
+
+  // Select the project card wrappers and set data-wow-delay/data-wow-duration
+  var cards = document.querySelectorAll('.project-card-wrapper');
+  if (cards && cards.length) {
+    cards.forEach(function(card, idx) {
+      // Only set when not explicitly provided
+      var existing = card.getAttribute('data-wow-delay');
+      if (!existing) {
+        var delay = (baseDelay + idx * stepDelay).toFixed(2) + 's';
+        card.setAttribute('data-wow-delay', delay);
+      }
+      // set a consistent duration for all cards for smoothness
+      card.setAttribute('data-wow-duration', '0.7s');
+    });
   }
-  )
+
+  // Initialize WOW after attributes are set
+  wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: false,
+    live: true
+  });
   wow.init();
+}
+
+// Run once DOM is ready so elements exist
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initStaggeredWOW);
+} else {
+  initStaggeredWOW();
+}
 
 // ScrollBtn JS
 window.onscroll = function() { scrollFunction() };

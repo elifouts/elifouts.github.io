@@ -102,6 +102,114 @@
             padding-right: 10px !important;
         }
 
+        /* Enhanced Project Card Animations */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .project-card-wrapper {
+            opacity: 0;
+            transform: translateY(60px) scale(0.8);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .project-card-wrapper.wow.fadeInUp {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .github-repo-card {
+            background: linear-gradient(135deg, #3c3836 0%, #504945 100%);
+            border: 2px solid #665c54;
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .github-repo-card:hover::before {
+            left: 100%;
+        }
+
+        .github-repo-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #83a598 0%, #458588 50%, #689d6a 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .github-repo-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .github-repo-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            border-color: #83a598;
+            background: linear-gradient(135deg, #83a598 0%, #458588 50%, #689d6a 100%);
+        }
+
+        .github-repo-card:hover .repo-name,
+        .github-repo-card:hover .repo-description,
+        .github-repo-card:hover .stat-item {
+            color: #1d2021;
+        }
+
+        .github-repo-card:hover .repo-icon {
+            color: #1d2021;
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .floating-cards-container {
+            padding: 20px 0;
+        }
+
+        /* Responsive grid adjustments */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 15px 0;
+            }
+            
+            .github-repo-card {
+                padding: 20px;
+            }
+        }
+
         /* Service Page Layout Improvements */
         .d2c_services_wrapper.d2c_service_page {
             padding: 80px 0 60px !important;
@@ -667,9 +775,164 @@
                 background-position: 0% 50%;
             }
         }
+
+        /* Complete Star Visibility Fix */
+        .star-stat i, .fork-stat i {
+            color: #fabd2f !important;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8) !important;
+            font-size: 14px !important;
+            z-index: 100 !important;
+            position: relative !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .star-stat, .fork-stat, .repo-stats-bottom {
+            background: transparent !important;
+            z-index: 100 !important;
+            position: relative !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .github-repo-card:hover .star-stat i,
+        .github-repo-card:hover .fork-stat i {
+            color: #1d2021 !important;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5) !important;
+        }
+
+        /* Projects Container Transparent Background */
+        .d2c_testimonial_wrapper.github-repos-section {
+            background: transparent !important;
+            overflow: visible !important;
+        }
+
+        .projects-grid {
+            background: transparent !important;
+        }
+
+        /* Make project container transparent for starfield visibility */
+        .d2c_service_page_wrapper {
+            background: transparent !important;
+        }
+
+        .d2c_testimonial_wrapper.github-repos-section {
+            background: transparent !important;
+        }
+
+        .d2c_testimonial_wrapper.github-repos-section .container {
+            background: transparent !important;
+        }
+
+        /* Fix starfield canvas positioning */
+        #starfield {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: -1 !important;
+            pointer-events: none !important;
+        }
+
+        /* Neon glowing star and fork icons */
+        .star-stat i, .fork-stat i {
+            color: var(--primary_color) !important;
+            text-shadow: 
+                0 0 5px rgba(168, 153, 132, 0.8),
+                0 0 10px rgba(168, 153, 132, 0.6),
+                0 0 15px rgba(168, 153, 132, 0.4),
+                0 0 20px rgba(168, 153, 132, 0.2) !important;
+            filter: brightness(1.2) !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .github-repo-card:hover .star-stat i {
+            color: #1d2021 !important;
+            text-shadow: 
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(0, 0, 0, 0.3) !important;
+            filter: brightness(1.1) !important;
+            transform: scale(1.2) rotate(10deg) !important;
+        }
+
+        .github-repo-card:hover .fork-stat i {
+            color: #1d2021 !important;
+            text-shadow: 
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(0, 0, 0, 0.3) !important;
+            filter: brightness(1.1) !important;
+            transform: scale(1.1) !important;
+        }
+
+        /* Gruvbox Rainbow Border for Dotfiles Card (when NOT hovered) */
+        .github-repo-card[data-repo-url*="Dotfiles"] {
+            position: relative;
+            overflow: visible;
+            border: 2px solid transparent;
+            background: linear-gradient(#3c3836, #3c3836) padding-box,
+                        linear-gradient(
+                            45deg,
+                            #d2b48c,  /* tan */
+                            #cbb898,  /* sand */
+                            #9fb0bf,  /* slate-blue */
+                            #6f98b3,  /* steel-blue */
+                            #417899,  /* deep-blue */
+                            #2f5068,  /* navy */
+                            #6b9fbf,  /* muted-cyan */
+                            #d2b48c   /* back to tan for smooth loop */
+                        ) border-box;
+            background-size: auto, 400% 400%;
+            border-radius: 20px;
+            animation: gruvboxRainbowBorder 12s ease-in-out infinite;
+        }
+
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent_color);
+            background: linear-gradient(45deg, #83a598, #458588, #689d6a, #b16286);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            z-index: 10;
+        }
+
+        @keyframes gruvboxRainbowBorder {
+            0% {
+                background-position: auto, 0% 50%;
+            }
+            25% {
+                background-position: auto, 100% 50%;
+            }
+            50% {
+                background-position: auto, 100% 0%;
+            }
+            75% {
+                background-position: auto, 0% 0%;
+            }
+            100% {
+                background-position: auto, 0% 50%;
+            }
+        }
+
+        /* Remove top accent bar on Dotfiles hover (disable both ::before and ::after) */
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover::before,
+        .github-repo-card[data-repo-url*="Dotfiles"]:hover::after {
+            transform: scaleX(0) !important;
+            opacity: 0 !important;
+            transition: transform 0.2s ease, opacity 0.2s ease !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+    
     <!-- Service Page Start -->
 
     <!--  Preloader Start  -->
@@ -741,57 +1004,26 @@
             <!-- Services Section Start -->
         <section class="d2c_testimonial_wrapper github-repos-section">
             <div class="container">
-                <div class="d-flex justify-content-center align-items-center mb-4 wow fadeInUp">
-                    <div class="text-center">
-                        <h2 class="mb-2">My Projects</h2>
-                        <p class="mb-0">Explore my open-source projects and contributions</p>
-                    </div>
+                <div class="text-center mb-5">
+                    <h2 class="wow fadeInDown" data-wow-delay="0.1s">My Projects</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Explore my open-source projects and contributions</p>
                 </div>
-                <div class="floating-cards-container wow fadeInUp" id="floating-cards-container">
-                    <!-- Floating cards for space effect -->
-                    <div class="floating-card-wrapper">
-                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/ai-automation-suite">
+                
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/Dotfiles">
                             <div class="repo-header">
                                 <div class="repo-icon">
                                     <i class="fab fa-github"></i>
                                 </div>
                                 <div class="repo-title-section">
-                                    <h5 class="repo-name">AI-Automation-Suite</h5>
-                                    <p class="repo-subtitle">Intelligent Process Automation Platform</p>
+                                    <h5 class="repo-name">Dotfiles</h5>
+                                    <p class="repo-subtitle">Personal Configuration Files</p>
                                 </div>
                             </div>
                             <div class="repo-description-section">
-                                <p class="repo-description">AI automation platform with ML integration for business processes.</p>
-                            </div>
-                            <div class="repo-stats-bottom">
-                                <div class="stat-item language-stat">
-                                    <div class="language-dot python"></div>
-                                    <span class="language-name">Python</span>
-                                </div>
-                                <div class="stat-item star-stat">
-                                    <i class="fas fa-star"></i>
-                                    <span>156</span>
-                                </div>
-                                <div class="stat-item fork-stat">
-                                    <i class="fas fa-code-branch"></i>
-                                    <span>42</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="floating-card-wrapper">
-                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/cloud-infrastructure-toolkit">
-                            <div class="repo-header">
-                                <div class="repo-icon">
-                                    <i class="fab fa-github"></i>
-                                </div>
-                                <div class="repo-title-section">
-                                    <h5 class="repo-name">Cloud-Infrastructure-Toolkit</h5>
-                                    <p class="repo-subtitle">DevOps Configuration Management</p>
-                                </div>
-                            </div>
-                            <div class="repo-description-section">
-                                <p class="repo-description">DevOps toolkit for cloud deployment with automated scaling.</p>
+                                <p class="repo-description">My personal dotfiles collection for customizing development environment, window managers, and system configurations across different platforms.</p>
                             </div>
                             <div class="repo-stats-bottom">
                                 <div class="stat-item language-stat">
@@ -800,28 +1032,126 @@
                                 </div>
                                 <div class="stat-item star-stat">
                                     <i class="fas fa-star"></i>
-                                    <span>203</span>
+                                    <span>5</span>
                                 </div>
                                 <div class="stat-item fork-stat">
                                     <i class="fas fa-code-branch"></i>
-                                    <span>67</span>
+                                    <span>2</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="floating-card-wrapper">
-                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/web-analytics-dashboard">
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/wallpapers">
                             <div class="repo-header">
                                 <div class="repo-icon">
                                     <i class="fab fa-github"></i>
                                 </div>
                                 <div class="repo-title-section">
-                                    <h5 class="repo-name">Web-Analytics-Dashboard</h5>
-                                    <p class="repo-subtitle">Real-time Data Visualization</p>
+                                    <h5 class="repo-name">Wallpapers</h5>
+                                    <p class="repo-subtitle">Curated Wallpaper Collection</p>
                                 </div>
                             </div>
                             <div class="repo-description-section">
-                                <p class="repo-description">Web analytics with real-time data processing and visualization.</p>
+                                <p class="repo-description">A carefully curated collection of high-quality wallpapers for desktop customization and personal use.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot css"></div>
+                                    <span class="language-name">CSS</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>12</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/MyFetch">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">MyFetch</h5>
+                                    <p class="repo-subtitle">Custom System Information Tool</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">A personalized system information display tool built for showcasing system specs, configurations, and customizations in style.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot shell"></div>
+                                    <span class="language-name">Shell</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>8</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/EfoutsCode">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">EfoutsCode</h5>
+                                    <p class="repo-subtitle">Personal Coding Projects</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">A collection of my personal coding projects, experiments, and learning exercises across various programming languages.</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot lua"></div>
+                                    <span class="language-name">Lua</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>6</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/ManageMe">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">ManageMe</h5>
+                                    <p class="repo-subtitle">Personal Management Application</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">A comprehensive personal management application designed to help organize tasks, projects, and daily activities efficiently.</p>
                             </div>
                             <div class="repo-stats-bottom">
                                 <div class="stat-item language-stat">
@@ -830,28 +1160,30 @@
                                 </div>
                                 <div class="stat-item star-stat">
                                     <i class="fas fa-star"></i>
-                                    <span>89</span>
+                                    <span>12</span>
                                 </div>
                                 <div class="stat-item fork-stat">
                                     <i class="fas fa-code-branch"></i>
-                                    <span>23</span>
+                                    <span>4</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="floating-card-wrapper">
-                        <div class="github-repo-card floating-card" data-repo-url="https://github.com/username/reactflow-dashboard">
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="github-repo-card" data-repo-url="https://github.com/elifouts/Poli-Search">
                             <div class="repo-header">
                                 <div class="repo-icon">
                                     <i class="fab fa-github"></i>
                                 </div>
                                 <div class="repo-title-section">
-                                    <h5 class="repo-name">ReactFlow-Dashboard</h5>
-                                    <p class="repo-subtitle">Interactive Data Visualization Platform</p>
+                                    <h5 class="repo-name">Poli-Search</h5>
+                                    <p class="repo-subtitle">Political Information Search Tool</p>
                                 </div>
                             </div>
                             <div class="repo-description-section">
-                                <p class="repo-description">React dashboard with TypeScript and real-time data visualization.</p>
+                                <p class="repo-description">A search tool designed to help users find and organize political information and data efficiently.</p>
                             </div>
                             <div class="repo-stats-bottom">
                                 <div class="stat-item language-stat">
@@ -860,11 +1192,11 @@
                                 </div>
                                 <div class="stat-item star-stat">
                                     <i class="fas fa-star"></i>
-                                    <span>89</span>
+                                    <span>7</span>
                                 </div>
                                 <div class="stat-item fork-stat">
                                     <i class="fas fa-code-branch"></i>
-                                    <span>17</span>
+                                    <span>3</span>
                                 </div>
                             </div>
                         </div>
@@ -882,45 +1214,45 @@
             <div class="row">
                 <div class="col-md-10 col-lg-4 mb-4 mb-lg-0 wow fadeInLeft">
                     <a href="../index.html"><span class="ef-logo">EF</span></a>
-                    <p class="mb-0">I've been working as web developer for the past two years, and have experience</p>
+                    <p class="mb-0">Computer Science student at UC, currently co-oping as a PLM Application Engineer at Saratech. Passionate about coding, hiking, and photography.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4 mb-md-0 wow fadeInUp">
                     <div class="d2c_contact_details">
                         <h5>Contact Details</h5>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="tel:882195550114" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
-                            <p class="mb-0">+88 219 555-0114</p>
+                            <a href="tel:5139078569" class="d2c_icon_wrapper"><i class="fas fa-phone-alt"></i></a>
+                            <p class="mb-0">(513) 907-8569</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center mb-2">
-                            <a href="mailto:reactprox@mail.com" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
-                            <p class="mb-0">reactprox@mail.com</p>
+                            <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            <p class="mb-0" onclick="showEmailPopup(event)" style="cursor: pointer;">eligfouts@gmail.com</p>
                         </div>
                         <div class="d2c_info_wrapper d-flex align-items-center">
-                            <a href="https://www.google.com/maps/search/Royal+2464+Ln.+Mesa,+New+Jersey/@40.0677546,-76.0433962,8z/data=!3m1!4b1?entry=ttu" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
-                            <p class="mb-0">Royal 2464 Ln. Mesa, New Jersey</p>
+                            <a href="https://www.google.com/maps/place/University+of+Cincinnati,+Cincinnati,+OH/" target="_blank" class="d2c_icon_wrapper"><i class="fas fa-map-marker-alt"></i></a>
+                            <p class="mb-0">University of Cincinnati, Cincinnati, OH</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInRight">
                     <div class="d2c_footer_newsletter">
-                        <h5>Newsletter</h5>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group h-100">
-                                <input type="email" class="form-control" placeholder="input your email:" aria-describedby="newsletter_btn" autocomplete="on" required>
-                                <button class="btn" type="submit" id="newsletter_btn"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
+                        <h5>Connect With Me</h5>
+                        <p class="mb-3">Follow my journey and connect with me on social media!</p>
                         <ul class="list-group list-group-horizontal">
                             <li>
-                                <a href="https://www.facebook.com/Designtocodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/elifouts" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/DesignToCodes" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/elifouts/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/eli_fouts73/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li>
+                                <a href="#" onclick="showEmailPopup(event)" class="d2c_icon_wrapper"><i class="fas fa-envelope"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                                 <a href="https://www.instagram.com/designtocodes/" target="_blank" class="d2c_icon_wrapper"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
@@ -931,7 +1263,7 @@
         <!-- Copy Right Start -->
         <div class="container">
             <div class="d2c_copy_right_wrapper">
-                <p class="mb-0 text-center">Copyright &copy; 2024 <a href="https://designtocodes.com/" target="_blank" class="d2c_link">DesignToCodes</a>. All Rights Reserved.</p>
+                <p class="mb-0 text-center">Copyright &copy; 2025 Eli Fouts. All Rights Reserved.</p>
             </div>
         </div>
         <!-- Copy Right End -->
@@ -966,6 +1298,102 @@
     <script src="../assets/js/starfield.js"></script>
     <!-- GitHub Repos JS -->
     <script src="../assets/js/github-repos.js"></script>
+    <script src="../assets/js/email-popup.js"></script>
+
+    <!-- Project Cards Animation Script -->
+    <script>
+        $(document).ready(function() {
+            // Enhanced WOW animation for project cards
+            const projectCards = $('.project-card-wrapper');
+            
+            // Auto-assign sequential delays for any number of cards
+            projectCards.each(function(index) {
+                const delay = 0.3 + (index * 0.1); // Start at 0.3s, increment by 0.1s
+                $(this).attr('data-wow-delay', delay + 's');
+            });
+
+            // Initialize WOW with custom settings
+            new WOW({
+                boxClass: 'wow',
+                animateClass: 'animated',
+                offset: 100,
+                mobile: true,
+                live: true,
+                scrollContainer: null,
+                resetAnimation: false
+            }).init();
+
+            // Add click handlers for project cards
+            $('.github-repo-card').on('click', function() {
+                const repoUrl = $(this).data('repo-url');
+                if (repoUrl) {
+                    window.open(repoUrl, '_blank');
+                }
+            });
+
+            // Add keyboard navigation support
+            $('.github-repo-card').attr('tabindex', '0').on('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    $(this).click();
+                }
+            });
+
+            // Enhanced hover effects with sound feedback (optional)
+            $('.github-repo-card').on('mouseenter', function() {
+                $(this).addClass('hovered');
+            }).on('mouseleave', function() {
+                $(this).removeClass('hovered');
+            });
+
+            // Add loading animation for dynamically added cards
+            function addProjectCard(cardData) {
+                const cardIndex = $('.project-card-wrapper').length;
+                const delay = 0.3 + (cardIndex * 0.1);
+                
+                const cardHtml = `
+                    <div class="project-card-wrapper wow fadeInUp" data-wow-delay="${delay}s">
+                        <div class="github-repo-card" data-repo-url="${cardData.url}">
+                            <div class="repo-header">
+                                <div class="repo-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="repo-title-section">
+                                    <h5 class="repo-name">${cardData.name}</h5>
+                                    <p class="repo-subtitle">${cardData.subtitle}</p>
+                                </div>
+                            </div>
+                            <div class="repo-description-section">
+                                <p class="repo-description">${cardData.description}</p>
+                            </div>
+                            <div class="repo-stats-bottom">
+                                <div class="stat-item language-stat">
+                                    <div class="language-dot ${cardData.language.toLowerCase()}"></div>
+                                    <span class="language-name">${cardData.language}</span>
+                                </div>
+                                <div class="stat-item star-stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>${cardData.stars}</span>
+                                </div>
+                                <div class="stat-item fork-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>${cardData.forks}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                $('#projects-grid').append(cardHtml);
+                
+                // Re-initialize WOW for new elements
+                new WOW().init();
+            }
+
+            // Make addProjectCard globally available
+            window.addProjectCard = addProjectCard;
+        });
+    </script>
     
     <!-- Floating Cards Drag Script -->
     <script>
