@@ -8,7 +8,8 @@ class GitHubAPI {
             'elifouts/EfoutsCode',
             'elifouts/MyFetch',
             'elifouts/ManageMe',
-            'elifouts/Poli-Search'
+            'elifouts/Poli-Search',
+            'https://github.com/elifouts/DriveGo',
         ];
         this.cache = new Map();
         this.rateLimit = { remaining: 60, reset: Date.now() };
@@ -417,4 +418,5 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Export for potential use in other scripts
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
+
 }
