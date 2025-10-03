@@ -9,7 +9,7 @@ class GitHubAPI {
             'elifouts/MyFetch',
             'elifouts/ManageMe',
             'elifouts/Poli-Search',
-            'https://github.com/elifouts/DriveGo',
+            'elifouts/DriveGo',
         ];
         this.cache = new Map();
         this.rateLimit = { remaining: 60, reset: Date.now() };
@@ -175,7 +175,16 @@ class GitHubAPI {
                 forks_count: 1,
                 html_url: 'https://github.com/elifouts/Poli-Search',
                 updated_at: '2024-01-03T15:45:00Z'
-            }
+            },
+            'elifouts/DriveGo': {
+                    name: 'DriveGo',
+                    description: 'Car Enthusiest Routs',
+                    language: 'JavaScript',
+                    stargazers_count: 1,
+                    forks_count: 2,
+                    html_url: 'https://github.com/elifouts/DriveGo',
+                    updated_at: '2024-01-03T15:45:00Z'
+                }
         };
 
         return fallbackData[repoPath] || {
@@ -420,3 +429,4 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
 
 }
+
