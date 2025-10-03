@@ -292,7 +292,7 @@ class GitHubAPI {
             if (!sliderContainer) return;
 
             // Take first 6 repos for home page slider
-            const homeRepos = repos.slice(0, 10);
+            const homeRepos = repos.slice(0, 7);
             let html = '';
             
             homeRepos.forEach((repo, index) => {
@@ -429,6 +429,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
 
 }
+
 
 
 
