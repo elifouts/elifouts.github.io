@@ -4,11 +4,12 @@ class GitHubAPI {
         this.repos = [
             'elifouts/elifouts.github.io',
             'elifouts/Dotfiles',
+            'elifouts/DriveGo',
             'elifouts/wallpapers',
             'elifouts/EfoutsCode',
             'elifouts/MyFetch',
             'elifouts/ManageMe',
-            'elifouts/Poli-Search'
+            'elifouts/Poli-Search',
         ];
         this.cache = new Map();
         this.rateLimit = { remaining: 60, reset: Date.now() };
@@ -174,7 +175,16 @@ class GitHubAPI {
                 forks_count: 1,
                 html_url: 'https://github.com/elifouts/Poli-Search',
                 updated_at: '2024-01-03T15:45:00Z'
-            }
+            },
+            'elifouts/DriveGo': {
+                    name: 'DriveGo',
+                    description: 'Car Enthusiest Routs',
+                    language: 'JavaScript',
+                    stargazers_count: 1,
+                    forks_count: 2,
+                    html_url: 'https://github.com/elifouts/DriveGo',
+                    updated_at: '2024-01-03T15:45:00Z'
+                }
         };
 
         return fallbackData[repoPath] || {
@@ -281,8 +291,10 @@ class GitHubAPI {
             const sliderContainer = document.getElementById('project-slider-container');
             if (!sliderContainer) return;
 
-            // Take first 6 repos for home page slider
-            const homeRepos = repos.slice(0, 6);
+            // Use all repos dynamically for the home page slider
+            // const homeRepos = repos.slice(0, 7); // Original code, removed limit
+            const homeRepos = repos; // Dynamic - use all
+
             let html = '';
             
             homeRepos.forEach((repo, index) => {
@@ -417,4 +429,5 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Export for potential use in other scripts
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
+
 }
