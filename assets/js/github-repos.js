@@ -291,8 +291,10 @@ class GitHubAPI {
             const sliderContainer = document.getElementById('project-slider-container');
             if (!sliderContainer) return;
 
-            // Take first 6 repos for home page slider
-            const homeRepos = repos.slice(0, 7);
+            // Use all repos dynamically for the home page slider
+            // const homeRepos = repos.slice(0, 7); // Original code, removed limit
+            const homeRepos = repos; // Dynamic - use all
+
             let html = '';
             
             homeRepos.forEach((repo, index) => {
@@ -429,7 +431,3 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
 
 }
-
-
-
-
