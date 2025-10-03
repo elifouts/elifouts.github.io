@@ -4,12 +4,12 @@ class GitHubAPI {
         this.repos = [
             'elifouts/elifouts.github.io',
             'elifouts/Dotfiles',
+            'elifouts/DriveGo',
             'elifouts/wallpapers',
             'elifouts/EfoutsCode',
             'elifouts/MyFetch',
             'elifouts/ManageMe',
             'elifouts/Poli-Search',
-            'elifouts/DriveGo',
         ];
         this.cache = new Map();
         this.rateLimit = { remaining: 60, reset: Date.now() };
@@ -429,5 +429,6 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = GitHubAPI;
 
 }
+
 
 
