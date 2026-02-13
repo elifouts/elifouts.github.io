@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riley Boughner | Links</title>
+  <meta name="description" content="Riley Boughner links" />
+  <style>
+    :root {
+      --bg-1: #000000;
+      --bg-2: #111111;
+      --bg-3: #2a2a2a;
+      --panel: #161616;
+      --panel-border: #3a3a3a;
+      --text: #f1f1f1;
+      --button: #2f2f2f;
+      --button-hover: #454545;
+      --ring: #bfbfbf;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, #ffffff1a 0%, transparent 30%),
+        radial-gradient(circle at 85% 0%, #d4d4d41a 0%, transparent 25%),
+        linear-gradient(165deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+      padding: 24px 14px;
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      width: min(500px, 100%);
+      background: linear-gradient(180deg, #0b0b0b, var(--panel));
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.65);
+      padding: 24px 18px 18px;
+    }
+
+    .profile {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 3px solid #1d1d1d;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      line-height: 1.2;
+      color: #f8f8f8;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .link {
+      min-height: 56px;
+      border-radius: var(--radius);
+      border: 1px solid #595959;
+      background: var(--button);
+      color: #f8f8f8;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+    }
+
+    .link:hover,
+    .link:focus-visible {
+      background: var(--button-hover);
+      border-color: #9a9a9a;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .link:focus-visible {
+      box-shadow: 0 0 0 3px #111111, 0 0 0 6px var(--ring);
+    }
+
+    @media (max-width: 420px) {
+      main { padding: 20px 14px 14px; }
+      .avatar { width: 96px; height: 96px; }
+      .link { min-height: 54px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="profile">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/66699507?v=4" alt="Riley Boughner profile photo" />
+      <h1>Riley Boughner</h1>
+    </section>
+
+    <div class="links">
+      <a class="link" href="https://www.linkedin.com/in/rileyboughner/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="link" href="https://github.com/rileyboughner" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="link" href="https://www.instagram.com/rileyboughner/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="link" href="mailto:contact@rileyboughner.dev">Email</a>
+      <a class="link" href="/me/riley-boughner.vcf" download="riley-boughner.vcf">Add Contact</a>
+    </div>
+  </main>
+</body>
+</html>
