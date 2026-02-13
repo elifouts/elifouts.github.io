@@ -1,7 +1,7 @@
 BEGIN:VCARD
-VERSION:3.0
-N:Boughner;Riley;;;
-FN:Riley Boughner
-TEL;TYPE=CELL:+16148000414
-EMAIL;TYPE=INTERNET:mail@rileyboughner.dev
+VERSION:1.0
+N:Fouts;Eli;;;
+FN:Eli Fouts
+TEL;TYPE=CELL:+15139078569
+EMAIL;TYPE=INTERNET:mail@elifouts.net
 END:VCARD
