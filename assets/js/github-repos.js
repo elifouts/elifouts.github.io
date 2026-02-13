@@ -10,6 +10,8 @@ class GitHubAPI {
             'elifouts/MyFetch',
             'elifouts/ManageMe',
             'elifouts/Poli-Search',
+            'elifouts/DNA',
+            'elifouts/DevBits'
         ];
         this.cache = new Map();
         this.rateLimit = { remaining: 60, reset: Date.now() };

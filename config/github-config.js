@@ -5,7 +5,7 @@ const GitHubConfig = {
     // Replace with your GitHub Personal Access Token
     // Get one from: https://github.com/settings/tokens
     // Required permissions: public_repo, repo:status, metadata
-    token: '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',
+    // token: '', // REMOVED for security. Use environment variable or .env file instead.
     
     // Alternative: Use environment variable if available
     // token: process.env.GITHUB_TOKEN || 'YOUR_GITHUB_TOKEN_HERE',
